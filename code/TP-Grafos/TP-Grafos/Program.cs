@@ -9,10 +9,12 @@ namespace TP_Grafos
     internal class Program
     {
         private static Edwaldo edwaldo;
+        private static char[] indiceLiteral;
 
         static void Main(string[] args)
         {
             edwaldo = new Edwaldo();
+            indiceLiteral = new char[] { 'A', 'B', 'C', 'D', 'E', 'F' };
             bool fim = false;
             do
             {
@@ -50,10 +52,7 @@ namespace TP_Grafos
                 }
                 catch (Exception e)
                 {
-                    Console.WriteLine(e.Message);
-                    Console.WriteLine("(Pressione qualquer tecla para continuar)");
-                    Console.ReadKey();
-                    Console.Clear();
+                    erro(e);
                 }
             }
             while (fim == false);
@@ -80,61 +79,83 @@ namespace TP_Grafos
             }
             catch (Exception e)
             {
-                Console.WriteLine(e);
-                Console.WriteLine("(Pressione qualquer tecla para continuar)");
-                Console.ReadKey();
-                Console.Clear();
+                erro(e);
                 return menu();
             }
         }
 
         static string criarGrafo()
         {
-            int[] verticesAleatorios = new int[2];
+            try
+            {
+                Console.WriteLine("Quantos vértices terá o grafo?");
+                Console.Write("RESPOSTA: ");
+                int N = Convert.ToInt32(Console.ReadLine());
+                edwaldo.qntVerticeGrafoValida(N);
 
-            Console.WriteLine("Quantos vértices terá o grafo?");
-            Console.Write("RESPOSTA: ");
-            int N = Convert.ToInt32(Console.ReadLine());
+                Console.WriteLine("\nQuantas arestas terá o grafo ?");
+                Console.Write("RESPOSTA: ");
+                int M = Convert.ToInt32(Console.ReadLine());
+                edwaldo.qntArestaGrafoValida(N, M);
 
-            Console.WriteLine("Quantas arestas terá o grafo ?");
-            Console.Write("RESPOSTA: ");
-            int M = Convert.ToInt32(Console.ReadLine());
+                edwaldo.definirGrafo(N, M);
+                Console.Clear();
 
-            edwaldo.definirGrafo(N, M);
-
-            int arestasRestantes = M;
-            for (int i = 0; i <= N; i++) {
-                if (arestasRestantes > 0){
-                    arestasRestantes = criarAresta(i, arestasRestantes);
+                int arestasRestantes = M;
+                for (int i = 0; i <= N; i++) {
+                    if (arestasRestantes > 0){
+                        arestasRestantes = criarAresta(i, arestasRestantes);
+                    }
                 }
+
+                return edwaldo.representacao();
+                }
+            catch (Exception e)
+            {
+                erro(e);
+                return criarGrafo();
             }
 
-            return edwaldo.representacao();
         }
 
         static int criarAresta(int indexVertice, int arestasRestantes)
         {
-            Console.WriteLine("#Arestas restantes: "+ arestasRestantes+" #");
-            Console.WriteLine("Quantas arestas terá o vértice " + indexVertice + "?");
-            Console.Write("RESPOSTA: ");
-            int qntArestas = Convert.ToInt32(Console.ReadLine());
-
-            if (qntArestas > arestasRestantes && edwaldo.qntArestaValida(qntArestas) == false){
-                Console.WriteLine("Quantidade inválida, favor tente novamente\n(Aperte qualquer tecla para continuar");
-                Console.ReadKey();
-                return criarAresta(indexVertice, arestasRestantes);
-            }
-
-            int peso = 0;
-            for (int j = 0; j < qntArestas; j++)
+            try
             {
-                Console.WriteLine("Peso da aresta " + (j + 1) + " - Vértice "+indexVertice+"?");
+                Console.WriteLine("#Arestas restantes: "+ arestasRestantes+"#");
+                Console.WriteLine("Quantas arestas terá o vértice " + indiceLiteral[indexVertice] + "?");
                 Console.Write("RESPOSTA: ");
-                peso = Convert.ToInt32(Console.ReadLine());
-                edwaldo.addAresta(indexVertice, peso);
-            }
+                int qntArestas = Convert.ToInt32(Console.ReadLine());
 
-            return arestasRestantes - qntArestas;
+                if (qntArestas > arestasRestantes || edwaldo.qntArestaVerticeValida(qntArestas) == false){
+                    throw new Exception("Quantidade inválida, favor tente novamente");
+                }
+
+                int peso = 0;
+                for (int j = 0; j < qntArestas; j++)
+                {
+                    Console.WriteLine("\nPeso da aresta " + (j + 1) + " - Vértice "+ indiceLiteral[indexVertice]);
+                    Console.Write("RESPOSTA: ");
+                    peso = Convert.ToInt32(Console.ReadLine());
+                    edwaldo.addAresta(indexVertice, peso);
+                }
+
+                return arestasRestantes - qntArestas;
+                }
+            catch (Exception e)
+            {
+                erro(e);
+                return criarAresta(indexVertice, arestasRestantes);
+
+            }
+        }
+
+        public static void erro(Exception e)
+        {
+            Console.WriteLine("\n" + e);
+            Console.WriteLine("(Pressione qualquer tecla para continuar)");
+            Console.ReadKey();
+            Console.Clear();
         }
 
         // static int menuDIMAC()

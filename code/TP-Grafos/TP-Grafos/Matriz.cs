@@ -21,5 +21,27 @@ namespace TP_Grafos
             dados[W, V] = peso;
         }
 
+        public override string toString()
+        {
+            StringBuilder sb = new StringBuilder();
+            sb.Append(" 0");
+            for (int i = 1; i < Lenght; i++)
+            {
+                sb.Append("-" + (i + 1));
+            }
+            sb.AppendLine();
+            for (int i = 0; i < Lenght; i++)
+            {
+                sb.Append(i + 1 + "|");
+                for (int j = 0; j < Lenght; j++)
+                {
+                    sb.Append(i + 1 + "|");
+                }
+                sb.AppendLine();
+            }
+
+            return sb.ToString();
+        }
+
     }
 }

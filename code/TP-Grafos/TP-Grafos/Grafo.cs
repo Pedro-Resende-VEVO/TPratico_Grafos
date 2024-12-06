@@ -15,5 +15,7 @@ namespace TP_Grafos
         }
 
         abstract public void addAresta(int V, int W, int peso);
+
+        abstract public string toString();
     }
 }

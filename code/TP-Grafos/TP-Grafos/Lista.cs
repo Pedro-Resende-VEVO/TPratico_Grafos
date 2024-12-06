@@ -12,27 +12,32 @@ namespace TP_Grafos
 
         public Lista(int N) : base(N)
         {
-            dados = new Dictionary<int, int>[N];
+            for (int i = 0; i< N; i++)
+            {
+                dados[i] = new Dictionary<int, int>();
+            }
             Lenght = N;
         }
 
-        override public void addAresta(int V, int W, int pesos)
+        override public void addAresta(int V, int W, int peso)
         {
+            dados[W].Add(V, peso);
         }
 
-        //public string toString()
-        //{
-        //    StringBuilder sb = new StringBuilder();
-        //    for (int i = 0; i < dados.Count(); i++)
-        //    {
-        //        sb.AppendLine("\nVertice" + i + ": ");
-        //        for (int j = 0; j < dados[i].Count(); j++)
-        //        {
-        //            sb.AppendLine("-> " + lista[i][j].toString());
-        //        }
-        //    }
+        override public string toString()
+        {
+            StringBuilder sb = new StringBuilder();
+            for (int i = 0; i < dados.Count(); i++)
+            {
+                sb.Append("|" +i+ "|");
+                for (int j = 0; j < dados[i].Count(); j++)
+                {
+                    sb.Append("-> " + dados[i][j]);
+                }
+                sb.AppendLine("-x");
+            }
 
-        //    return sb.ToString();
-        //}
+            return sb.ToString();
+        }
     }
 }
