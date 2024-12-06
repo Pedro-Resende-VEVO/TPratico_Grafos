@@ -2,7 +2,7 @@
 public List<(int origem, int destino, int peso)> EncontrarArestasAdjacentes(int v,int w)
 {
     var arestasAdjacentes= new List<(int origem,int destino, int peso);
-    if(v>= 0 && v<= grafo.Count)
+    if(v>= 0 && v < grafo.Count)
     {
         foreach(var destino in grafo[v])
         {
@@ -25,8 +25,15 @@ public List<(int origem, int destino, int peso)> EncontrarArestasAdjacentes(int 
     return arestasAdjacentes;
 }
 
-public List<(int vertice)> EncontrarVerticeAdjacente(int v)
+public List<(int)> EncontrarVerticeAdjacente(int v)
 {
     var verticesAdjacentes= new List<(int vertice);
-    if()
+    if(v>=0 && v< grafo.Count)
+    {
+        foreach(var destino in grafo[v])
+        {
+            verticesAdjacentes.Add((destino.Key))
+        }
+    }
+    return verticesAdjacentes;
 }
