@@ -1,0 +1,55 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\pedro\\OneDrive\\Documentos\\Trabalhinhos\\TPratico_Grafos\\TP-Grafos\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{5CD9F0C9-A15C-4DD6-AB9F-4FA0C231FBBA}|TP-Grafos\\TP-Grafos.csproj|c:\\users\\pedro\\onedrive\\documentos\\trabalhinhos\\tpratico_grafos\\tp-grafos\\tp-grafos\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5CD9F0C9-A15C-4DD6-AB9F-4FA0C231FBBA}|TP-Grafos\\TP-Grafos.csproj|solutionrelative:tp-grafos\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 293,
+          "SelectedChildIndex": -1,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
+            }
+          ]
+        },
+        {
+          "DockedWidth": 107,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\pedro\\OneDrive\\Documentos\\Trabalhinhos\\TPratico_Grafos\\TP-Grafos\\TP-Grafos\\Program.cs",
+              "RelativeDocumentMoniker": "TP-Grafos\\Program.cs",
+              "ToolTip": "C:\\Users\\pedro\\OneDrive\\Documentos\\Trabalhinhos\\TPratico_Grafos\\TP-Grafos\\TP-Grafos\\Program.cs",
+              "RelativeToolTip": "TP-Grafos\\Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-06T02:28:05.941Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{cce594b6-0c39-4442-ba28-10c64ac7e89f}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
