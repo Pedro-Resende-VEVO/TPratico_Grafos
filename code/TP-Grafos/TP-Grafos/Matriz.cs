@@ -10,14 +10,15 @@ namespace TP_Grafos
     {
         private int[,] dados;
 
-        public Matriz(int N)
+        public Matriz(int N) :base(N)
         {
             dados = new int[N, N];
+            Lenght = N;
         }
 
-        override public bool addAresta(int V, int W, int[] pesos)
+        override public void addAresta(int V, int W, int peso)
         {
-
+            dados[W, V] = peso;
         }
 
     }

@@ -12,67 +12,80 @@ namespace TP_Grafos
 
         static void Main(string[] args)
         {
+            edwaldo = new Edwaldo();
             bool fim = false;
-            while (fim == false)
+            do
             {
-                cabecalho();
-                int resp = menu();
-                switch (resp)
+                try
                 {
-                    case 1:
-                        Console.Clear();
-                        string grafoString = criarGrafo();
-                        Console.Clear();
-                        Console.WriteLine("Parabéns! você acabo de criar um grafo no formato de " + edwaldo.formato);
-                        Console.WriteLine("Sua representação pode ser vista abaixo:\n");
-                        Console.WriteLine(grafoString);
-                        Console.WriteLine("\n(Aperte qualquer tecla para voltar ao menu)");
-                        Console.ReadKey();
-                        break;
+                    cabecalho();
+                    int resp = menu();
+                    switch (resp)
+                    {
+                        case 1:
+                            Console.Clear();
+                            string grafoString = criarGrafo();
+                            Console.Clear();
+                            Console.WriteLine("Parabéns! você acabou de criar um grafo no formato de " + edwaldo.formato);
+                            Console.WriteLine("Sua representação pode ser vista abaixo:\n");
+                            Console.WriteLine(grafoString);
+                            Console.WriteLine("\n(Aperte qualquer tecla para voltar ao menu)");
+                            Console.ReadKey();
+                            Console.Clear();
+                            break;
 
-                    //case 2:
-                    //    Console.Clear();
-                    //    int resp_repre = menuDIMAC();
-                    //    executarRepresentacao(resp_repre);
-                    //    break;
+                        //case 2:
+                        //    Console.Clear();
+                        //    int resp_repre = menuDIMAC();
+                        //    executarRepresentacao(resp_repre);
+                        //    break;
 
-                    case 3:
-                        fim = true;
-                        break;
+                        case 3:
+                            fim = true;
+                            break;
+
+                        default:
+                            throw new Exception("Opção indisponível, favor tente novamente");
+                    }
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine(e.Message);
+                    Console.WriteLine("(Pressione qualquer tecla para continuar)");
+                    Console.ReadKey();
+                    Console.Clear();
                 }
             }
-
+            while (fim == false);
         }
-
         static void cabecalho()
         {
-            Console.WriteLine("#########################################");
+            Console.WriteLine("------------------------------------------");
             Console.WriteLine("#######-Trabalho Prático de Grafos-######");
-            Console.WriteLine("Integrantes: \n Pedro Resende \n Thiago Caetano \n Artur Amendoeira");
-            Console.WriteLine("#########################################");
+            Console.WriteLine("Integrantes: \n -Pedro Resende \n -Thiago Caetano \n -Artur Amendoeira");
+            Console.WriteLine("------------------------------------------");
         }
 
         static int menu()
         {
             try
             {
-                cabecalho();
                 Console.WriteLine("######## - Menu - #######");
                 Console.WriteLine("1) Criar grafo \n2) Ler formato DIMAC  \n 3) Sair");
                 Console.WriteLine("#######################");
                 Console.Write("ESCOLHA UMA OPÇÃO: ");
                 int resp = Convert.ToInt32(Console.ReadLine());
 
-                return (resp <= 0 || resp > 3) ? resp : throw new Exception("Opção indisponível");
+                return (resp >= 0 || resp <= 3) ? resp : throw new Exception("Opção indisponível, favor tente novamente");
             }
             catch (Exception e)
             {
                 Console.WriteLine(e);
                 Console.WriteLine("(Pressione qualquer tecla para continuar)");
                 Console.ReadKey();
+                Console.Clear();
                 return menu();
             }
-
         }
 
         static string criarGrafo()
@@ -90,8 +103,8 @@ namespace TP_Grafos
             edwaldo.definirGrafo(N, M);
 
             int arestasRestantes = M;
-            for (int i = 0; i < N; i++) {
-                if (arestasRestantes <= 0){
+            for (int i = 0; i <= N; i++) {
+                if (arestasRestantes > 0){
                     arestasRestantes = criarAresta(i, arestasRestantes);
                 }
             }
@@ -106,8 +119,9 @@ namespace TP_Grafos
             Console.Write("RESPOSTA: ");
             int qntArestas = Convert.ToInt32(Console.ReadLine());
 
-            if (qntArestas <= arestasRestantes){
+            if (qntArestas > arestasRestantes && edwaldo.qntArestaValida(qntArestas) == false){
                 Console.WriteLine("Quantidade inválida, favor tente novamente\n(Aperte qualquer tecla para continuar");
+                Console.ReadKey();
                 return criarAresta(indexVertice, arestasRestantes);
             }
 

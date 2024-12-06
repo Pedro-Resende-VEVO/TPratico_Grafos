@@ -40,9 +40,14 @@ namespace TP_Grafos
             return rng.Next(grafo.Lenght);
         }
 
+        public bool qntArestaValida(int qntArestas)
+        {
+            return (qntArestas <= grafo.Lenght - 1 && qntArestas >= 0) ? true : false;
+        }
+
         public string representacao()
         {
-
+            return "";
         }
     }
 }

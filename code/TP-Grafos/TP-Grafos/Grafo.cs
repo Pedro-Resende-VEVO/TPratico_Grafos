@@ -11,9 +11,9 @@ namespace TP_Grafos
         public int Lenght;
         public Grafo(int N)
         {
-
+            Lenght = 0;
         }
 
-        abstract public bool addAresta(int V, int W, int peso);
+        abstract public void addAresta(int V, int W, int peso);
     }
 }

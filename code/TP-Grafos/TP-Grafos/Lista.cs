@@ -8,31 +8,31 @@ namespace TP_Grafos
 {
     class Lista : Grafo
     {
-        private List<int>[] dados;
+        private Dictionary<int,int>[] dados;
 
         public Lista(int N) : base(N)
         {
-            dados = new List<int>();
+            dados = new Dictionary<int, int>[N];
+            Lenght = N;
         }
 
-        //override public bool add_aresta(int V, int W, int[] pesos)
-        //{
-
-        //}
-
-        public string toString()
+        override public void addAresta(int V, int W, int pesos)
         {
-            StringBuilder sb = new StringBuilder();
-            for (int i = 0; i < dados.Count(); i++)
-            {
-                sb.AppendLine("\nVertice" + i + ": ");
-                for (int j = 0; j < dados[i].Count(); j++)
-                {
-                    sb.AppendLine("-> " + lista[i][j].toString());
-                }
-            }
-
-            return sb.ToString();
         }
+
+        //public string toString()
+        //{
+        //    StringBuilder sb = new StringBuilder();
+        //    for (int i = 0; i < dados.Count(); i++)
+        //    {
+        //        sb.AppendLine("\nVertice" + i + ": ");
+        //        for (int j = 0; j < dados[i].Count(); j++)
+        //        {
+        //            sb.AppendLine("-> " + lista[i][j].toString());
+        //        }
+        //    }
+
+        //    return sb.ToString();
+        //}
     }
 }
