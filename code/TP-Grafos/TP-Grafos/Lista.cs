@@ -15,10 +15,10 @@ namespace TP_Grafos
             dados = new List<int>();
         }
 
-        override public bool add_aresta(int V, int W, int[] pesos)
-        {
+        //override public bool add_aresta(int V, int W, int[] pesos)
+        //{
 
-        }
+        //}
 
         public string toString()
         {

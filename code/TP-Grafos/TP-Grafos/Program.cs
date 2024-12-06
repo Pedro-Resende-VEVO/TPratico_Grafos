@@ -21,7 +21,13 @@ namespace TP_Grafos
                 {
                     case 1:
                         Console.Clear();
-                        criarGrafo();
+                        string grafoString = criarGrafo();
+                        Console.Clear();
+                        Console.WriteLine("Parabéns! você acabo de criar um grafo no formato de " + edwaldo.formato);
+                        Console.WriteLine("Sua representação pode ser vista abaixo:\n");
+                        Console.WriteLine(grafoString);
+                        Console.WriteLine("\n(Aperte qualquer tecla para voltar ao menu)");
+                        Console.ReadKey();
                         break;
 
                     //case 2:
@@ -69,7 +75,7 @@ namespace TP_Grafos
 
         }
 
-        static void criarGrafo()
+        static string criarGrafo()
         {
             int[] verticesAleatorios = new int[2];
 
@@ -77,29 +83,44 @@ namespace TP_Grafos
             Console.Write("RESPOSTA: ");
             int N = Convert.ToInt32(Console.ReadLine());
 
-            int total_arestas = 0;
-            for (int i = 0; i < N; i++)
-            {
-                Console.WriteLine("Quantas arestas terá o vértice " + i + "?");
-                Console.Write("RESPOSTA: ");
-                int qnt_arestas = Convert.ToInt32(Console.ReadLine());
-                total_arestas = total_arestas + qnt_arestas
+            Console.WriteLine("Quantas arestas terá o grafo ?");
+            Console.Write("RESPOSTA: ");
+            int M = Convert.ToInt32(Console.ReadLine());
 
-                int[] pesos = new int[qnt_arestas];
-                for (int j = 0; j < qnt_arestas; j++)
-                {
-                    Console.WriteLine("Qual peso da aresta " + (j + 1) + "?");
-                    Console.Write("RESPOSTA: ");
-                    pesos[j] = Convert.ToInt32(Console.ReadLine());
+            edwaldo.definirGrafo(N, M);
 
+            int arestasRestantes = M;
+            for (int i = 0; i < N; i++) {
+                if (arestasRestantes <= 0){
+                    arestasRestantes = criarAresta(i, arestasRestantes);
                 }
-                verticesAleatorios = edwaldo.sortearVertice(N);
-                grafo.add_aresta(verticesAleatorios[0], verticesAleatorios[1], pesos);
-
             }
-            grafo = edwaldo.definirGrafo(N, total_arestas);
 
-            Console.WriteLine(edwaldo.representacao());
+            return edwaldo.representacao();
+        }
+
+        static int criarAresta(int indexVertice, int arestasRestantes)
+        {
+            Console.WriteLine("#Arestas restantes: "+ arestasRestantes+" #");
+            Console.WriteLine("Quantas arestas terá o vértice " + indexVertice + "?");
+            Console.Write("RESPOSTA: ");
+            int qntArestas = Convert.ToInt32(Console.ReadLine());
+
+            if (qntArestas <= arestasRestantes){
+                Console.WriteLine("Quantidade inválida, favor tente novamente\n(Aperte qualquer tecla para continuar");
+                return criarAresta(indexVertice, arestasRestantes);
+            }
+
+            int peso = 0;
+            for (int j = 0; j < qntArestas; j++)
+            {
+                Console.WriteLine("Peso da aresta " + (j + 1) + " - Vértice "+indexVertice+"?");
+                Console.Write("RESPOSTA: ");
+                peso = Convert.ToInt32(Console.ReadLine());
+                edwaldo.addAresta(indexVertice, peso);
+            }
+
+            return arestasRestantes - qntArestas;
         }
 
         // static int menuDIMAC()

@@ -8,11 +8,12 @@ namespace TP_Grafos
 {
     abstract class Grafo
     {
+        public int Lenght;
         public Grafo(int N)
         {
 
         }
 
-        abstract public bool add_aresta(int V, int W, int[] pesos);
+        abstract public bool addAresta(int V, int W, int peso);
     }
 }

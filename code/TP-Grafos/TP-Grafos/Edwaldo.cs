@@ -11,32 +11,33 @@ namespace TP_Grafos
     {
         private double CRITERIO_DENSIDADE = 0.5;
         private Grafo grafo;
+        public string formato;
 
         public Edwaldo()
         {
-
+            formato = "";
         }
 
-        public Grafo definirGrafo(int N, int M)
+        public void definirGrafo(int N, int M)
         {
             if (M / N * (N - 1) > CRITERIO_DENSIDADE)
             {
-                return new Matriz(N);
+                grafo = new Matriz(N);
+                formato = "Matriz de Adjacência";
             }
-            return new Lista(N);
+            grafo = new Lista(N);
+            formato = "Lista de Adjacência";
         }
 
-        public int[] sortearVertice(int limite)
+        public void addAresta(int verticeOrigem, int peso)
+        {
+            grafo.addAresta(verticeOrigem, sortearVertice(), peso);
+        }
+
+        public int sortearVertice()
         {
             Random rng = new Random();
-            int[] verticesSortidos = new int[2];
-
-            for (int i = 0; i < 2; i++)
-            {
-                verticesSortidos[i] = rng.Next(limite);
-            }
-
-            return (verticesSortidos[0] != verticesSortidos[1]) ? [verticesSortidos[0], verticesSortidos[1]] : sortearVertice(limite);
+            return rng.Next(grafo.Lenght);
         }
 
         public string representacao()
