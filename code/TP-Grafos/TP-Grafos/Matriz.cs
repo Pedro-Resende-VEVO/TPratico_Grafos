@@ -26,19 +26,95 @@ namespace TP_Grafos
             return (dados[W, V] != 0) ? true : false;
         }
 
+        public Aresta[] arestasAdjacentes(Aresta a)
+        {
+            Aresta[] adjacentes = new Aresta[Lenght];
+            for (int i = 0; i < Lenght; i++)
+            {
+                if  (dados[i, a.V] != 0)
+                {
+                    adjacentes.Append(new Aresta(a.V, dados[i, a.V]));
+                }
+            }
+            return adjacentes;
+        }
 
-        public int[] arestasAdjacentes(int V, int W)
+        public int[] verticesAdjacentes(int v)
         {
             int[] adjacentes = new int[Lenght];
             for (int i = 0; i < Lenght; i++)
             {
-                if  (dados[W,i] != 0 && dados[W, i] != dados[W, V])
+                if (dados[v, i] != 0)
                 {
-                    adjacentes.Append(dados[W, i]);
+                    adjacentes.Append(i);
                 }
             }
             return adjacentes;
-        } 
+        }
+
+        public Aresta[] arestaIncidente(int v)
+        {
+            Aresta[] incidentes = new Aresta[Lenght];
+            for (int i = 0; i < Lenght; i++)
+            {
+                if (dados[v, i] != 0)
+                {
+                    incidentes.Append(new Aresta(i, dados[v, i]));
+                }
+            }
+            return incidentes;
+        }
+
+        //public Aresta[] verticesIncidentes(Aresta a)
+        //{
+        //    Aresta[] adjacentes = new Aresta[Lenght];
+        //    for (int i = 0; i < Lenght; i++)
+        //    {
+        //        if (dados[i, a.V] != 0)
+        //        {
+        //            adjacentes.Append(new Aresta(a.V, dados[i, a.V]));
+        //        }
+        //    }
+        //    return adjacentes;
+        //}
+
+        public int grauEntrada(int v)
+        {
+            int grau = 0;
+            for (int i = 0; i < Lenght; i++)
+            {
+                if (dados[v, i] != 0)
+                {
+                    grau++;
+                }
+            }
+            return grau;
+        }
+
+        public int grauSaida(int v)
+        {
+            int grau = 0;
+            for (int i = 0; i < Lenght; i++)
+            {
+                if (dados[i, v] != 0)
+                {
+                    grau++;
+                }
+            }
+            return grau;
+        }
+
+        public bool existeAdjacencia(int v, int w)
+        {
+            return (dados[w, v] != 0 || dados[w, v] != 0) ? true : false;
+        }
+
+        public Aresta substituirPeso(Aresta a, int pesoNovo)
+        {
+            dados[a.W, a.V] = pesoNovo;
+            a.peso = pesoNovo;
+            return a;
+        }
 
         public override string toString()
         {

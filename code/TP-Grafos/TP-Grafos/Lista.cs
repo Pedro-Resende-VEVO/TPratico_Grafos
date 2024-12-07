@@ -22,7 +22,7 @@ namespace TP_Grafos
 
         override public void addAresta(int V, int W, int peso)
         {
-            dados[W].Add(new Aresta(V, peso));
+            dados[W].Add(new Aresta(V, W, peso));
         }
 
         override public bool indiceOcupado(int V, int W)

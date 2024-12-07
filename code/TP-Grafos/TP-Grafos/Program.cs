@@ -196,12 +196,12 @@ namespace TP_Grafos
                 int w = Convert.ToInt32(Console.ReadLine());
                 edwaldo.verticeDestinoValido(w);
 
-                Console.WriteLine("\nPeso da aresta\n(Entre vértice " + v + "  -> vértice " + w + ")");
+                Console.WriteLine("\nPeso da aresta\n(Entre vértice " + (v+1) + "  -> vértice " + (w + 1) + ")");
                 Console.Write("RESPOSTA: ");
                 int peso = Convert.ToInt32(Console.ReadLine());
                 edwaldo.addAresta(v, w - 1, peso);
 
-                return (v + " " + w + " " + peso);
+                return ((v + 1) + " " + (w + 1) + " " + peso);
             }
             catch (Exception e)
             {
