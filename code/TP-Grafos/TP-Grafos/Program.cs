@@ -15,6 +15,7 @@ namespace TP_Grafos
         {
             edwaldo = new Edwaldo();
             indiceLiteral = new char[] { 'A', 'B', 'C', 'D', 'E', 'F' };
+            string grafoString;
             int[] G = new int[2];
             bool fim = false;
             do
@@ -28,11 +29,11 @@ namespace TP_Grafos
                         case 1:
                             Console.Clear();
                             G = criarGrafo();
-                            string grafoString = distribuirArestas(G[1]);
+                            distribuirArestas(G[1]);
                             Console.Clear();
                             Console.WriteLine("Parabéns! você acabou de criar um grafo no formato de " + edwaldo.formato);
                             Console.WriteLine("Sua representação pode ser vista abaixo:\n");
-                            Console.WriteLine(grafoString);
+                            Console.WriteLine(edwaldo.representacao());
                             Console.WriteLine("\n(Aperte qualquer tecla para voltar ao menu)");
                             Console.ReadKey();
                             Console.Clear();
@@ -42,13 +43,17 @@ namespace TP_Grafos
                             Console.Clear();
                             Console.WriteLine("Antes de utilizarmos o grafo no formato DIMIC, criaremos um!!\n");
                             G = criarGrafo();
-                            criarDIMIC(G[0], G[1]);
+                            grafoString = criarDIMIC(G[0], G[1]);
 
-                            Console.WriteLine("Sua representação pode ser vista abaixo:\n");
-                            Console.WriteLine("\n(Aperte qualquer tecla para voltar ao menu)");
+                            Console.WriteLine("Parabéns! você acabou de criar um grafo no formato de " + edwaldo.formato);
+                            Console.WriteLine("Sua representação padrão pode ser vista abaixo:\n");
+                            Console.WriteLine(edwaldo.representacao());
+                            Console.WriteLine("\nEnquanto sua representação DIMIC pode ser vista abaixo:\n");
+                            Console.WriteLine(grafoString);
+                            Console.WriteLine("\n(Aperte qualquer tecla para acessar menu DIMIC)");
                             Console.ReadKey();
                             Console.Clear();
-                            int resp_repre = menuDIMAC();
+                            menuDIMAC();
                             break;
 
                         case 3:
@@ -120,7 +125,7 @@ namespace TP_Grafos
             }
         }
 
-        static string distribuirArestas(int M)
+        static void distribuirArestas(int M)
         {
             try
             {
@@ -132,42 +137,23 @@ namespace TP_Grafos
                     edwaldo.addAresta(peso);
                 }
 
-                return edwaldo.representacao();
+                edwaldo.representacao();
             }
             catch (Exception e)
             {
                 erro(e);
-                return distribuirArestas(M);
+                distribuirArestas(M);
             }
         }
 
-        static int menuDIMAC()
+        private static string criarDIMIC(int N, int M)
         {
             try
             {
-                
-                Console.WriteLine("########- Menu de DIMAC -#######");
-                Console.WriteLine("1) Lista de Adjacência \n2) Matriz de Adjacência \n 3) Matriz de Incidência \n 4) Sair");
-                Console.WriteLine("#######################");
-                Console.Write("ESCOLHA UMA OPÇÃO: ");
-                int resp = Convert.ToInt32(Console.ReadLine());
-
-                return (resp <= 0 || resp > 4) ? resp : throw new Exception("Opção indisponível");
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine(e);
-                Console.WriteLine("(Pressione qualquer tecla para continuar)");
-                Console.ReadKey();
-                return menuDIMAC();
-            }
-        }
-
-        private static void criarDIMIC(int N, int M)
-        {
-            try
-            {
+                StringBuilder sb = new StringBuilder();
                 int arestasRestantes = M;
+
+                sb.AppendLine(N + " " + M);
                 for (int v = 0; v <= N; v++)
                 {
                     if (arestasRestantes > 0)
@@ -182,21 +168,10 @@ namespace TP_Grafos
                             throw new Exception("Quantidade inválida, favor tente novamente");
                         }
 
-                        int peso = 0;
-                        for (int j = 0; j < qntArestas; j++)
-                        {
-                            Console.WriteLine("Escolha entre 1 e " + (N-1));
-                            Console.WriteLine("\nVértice incidente W:");
-                            Console.Write("RESPOSTA: ");
-                            int w = Convert.ToInt32(Console.ReadLine());
-
-                            Console.WriteLine("\nPeso da aresta " + (j + 1) + " - Vértice " + indiceLiteral[v]);
-                            Console.Write("RESPOSTA: ");
-                            peso = Convert.ToInt32(Console.ReadLine());
-                            edwaldo.addAresta(v, w, peso);
-                        }
+                        sb.AppendLine(arestaDIMIC(N, v, qntArestas));
                     }
                 }
+                return sb.ToString();
             }
             catch (Exception e)
             {
@@ -204,6 +179,90 @@ namespace TP_Grafos
                 return criarDIMIC(N,M);
             }
         }
+
+        private static string arestaDIMIC(int N, int v, int qntArestas)
+        {
+            try
+            {
+                StringBuilder sb = new StringBuilder();
+                for (int j = 0; j < qntArestas; j++)
+                {
+                    Console.WriteLine("\nVértice cuja aresta incidente :");
+                    Console.WriteLine("(Escolha entre o vértice 0 e vértice " + (N - 1) + ")");
+                    Console.Write("RESPOSTA: ");
+                    int w = Convert.ToInt32(Console.ReadLine());
+                    edwaldo.verticeDestinoValido(w);
+
+                    Console.WriteLine("\nPeso da aresta\n(Entre vértice " + v + "  -> vértice " + w + ")");
+                    Console.Write("RESPOSTA: ");
+                    int peso = Convert.ToInt32(Console.ReadLine());
+                    edwaldo.addAresta(v, w, peso);
+
+                    sb.AppendLine(v + " " + w + " " + peso);
+                }
+                return sb.ToString();
+            }
+            catch (Exception e)
+            {
+                erro(e);
+                return arestaDIMIC(N, v, qntArestas);
+            }
+        }
+
+        static void mainDIMAC()
+        {
+            bool fim = false;
+            do
+            {
+                try
+                {
+                    cabecalho();
+                    int resp = menuDIMAC();
+                    switch (resp)
+                    {
+                        case 1:
+                            
+                            break;
+
+                        case 2:
+                            
+                            break;
+
+                        case 3:
+                            fim = true;
+                            break;
+
+                        default:
+                            throw new Exception("Opção indisponível, favor tente novamente");
+                    }
+                }
+                catch (Exception e)
+                {
+                    erro(e);
+                }
+            }
+            while (fim == false);
+        }
+
+        static int menuDIMAC()
+        {
+            try
+            {
+                Console.WriteLine("########- Menu de DIMAC -#######");
+                Console.WriteLine("1) Arestas adjacentes a aresta \"A\", \n2) Matriz de Adjacência \n 3) Matriz de Incidência \n 4) Sair");
+                Console.WriteLine("#######################");
+                Console.Write("ESCOLHA UMA OPÇÃO: ");
+                int resp = Convert.ToInt32(Console.ReadLine());
+
+                return (resp <= 0 || resp > 4) ? resp : throw new Exception("Opção indisponível, favor tente novamente");
+            }
+            catch (Exception e)
+            {
+                erro(e);
+                return menuDIMAC();
+            }
+        }
+
         public static void erro(Exception e)
         {
             Console.WriteLine("\n" + e);

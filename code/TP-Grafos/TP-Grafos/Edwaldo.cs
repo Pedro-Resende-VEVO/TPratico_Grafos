@@ -58,6 +58,11 @@ namespace TP_Grafos
             return rng.Next(grafo.Lenght);
         }
 
+        public bool verticeDestinoValido(int w)
+        {
+            return (w > 0 || w <= grafo.Lenght - 1) ? true : throw new Exception("Vértice de destino inválido");
+        }
+
         public bool qntVerticeGrafoValida(int N)
         {
             return (N > 0) ? true : throw new Exception("Quantidade de vértices inválido");
