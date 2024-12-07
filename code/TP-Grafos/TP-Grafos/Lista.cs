@@ -8,21 +8,21 @@ namespace TP_Grafos
 {
     class Lista : Grafo
     {
-        private Dictionary<int,int>[] dados;
+        private List<int>[] dados;
 
         public Lista(int N) : base(N)
         {
-            dados = new Dictionary<int, int>[N];
-            for (int i = 0; i< N; i++)
+            dados = new List<int>[N];
+            for (int i = 0; i < N; i++)
             {
-                dados[i] = new Dictionary<int, int>();
+                dados[i] = new List<int>();
             }
             Lenght = N;
         }
 
         override public void addAresta(int V, int W, int peso)
         {
-            dados[W].Add(V, peso);
+            dados[W].Insert(V, peso);
         }
 
         override public string toString()
