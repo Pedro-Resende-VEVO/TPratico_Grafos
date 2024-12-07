@@ -18,12 +18,12 @@ namespace TP_Grafos
 
         override public void addAresta(int V, int W, int peso)
         {
-            dados[W, V] = peso;
+            dados[V, W] = peso;
         }
 
         override public bool indiceOcupado(int V, int W)
         {
-            return (dados[W, V] != 0) ? true : false;
+            return (dados[V, W] != 0) ? true : false;
         }
 
         public Aresta[] arestasAdjacentes(Aresta a)
@@ -31,9 +31,9 @@ namespace TP_Grafos
             Aresta[] adjacentes = new Aresta[Lenght];
             for (int i = 0; i < Lenght; i++)
             {
-                if  (dados[i, a.V] != 0)
+                if  (dados[a.V, i] != 0)
                 {
-                    adjacentes.Append(new Aresta(a.V, dados[i, a.V]));
+                    adjacentes.Append(new Aresta(a.V, i, dados[a.V, i]));
                 }
             }
             return adjacentes;
@@ -44,7 +44,7 @@ namespace TP_Grafos
             int[] adjacentes = new int[Lenght];
             for (int i = 0; i < Lenght; i++)
             {
-                if (dados[v, i] != 0)
+                if (dados[i, v] != 0)
                 {
                     adjacentes.Append(i);
                 }
@@ -57,9 +57,9 @@ namespace TP_Grafos
             Aresta[] incidentes = new Aresta[Lenght];
             for (int i = 0; i < Lenght; i++)
             {
-                if (dados[v, i] != 0)
+                if (dados[i, v] != 0)
                 {
-                    incidentes.Append(new Aresta(i, dados[v, i]));
+                    incidentes.Append(new Aresta(i, v, dados[i, v]));
                 }
             }
             return incidentes;
@@ -83,7 +83,7 @@ namespace TP_Grafos
             int grau = 0;
             for (int i = 0; i < Lenght; i++)
             {
-                if (dados[v, i] != 0)
+                if (dados[i, v] != 0)
                 {
                     grau++;
                 }
@@ -96,7 +96,7 @@ namespace TP_Grafos
             int grau = 0;
             for (int i = 0; i < Lenght; i++)
             {
-                if (dados[i, v] != 0)
+                if (dados[v, i] != 0)
                 {
                     grau++;
                 }
@@ -111,10 +111,42 @@ namespace TP_Grafos
 
         public Aresta substituirPeso(Aresta a, int pesoNovo)
         {
-            dados[a.W, a.V] = pesoNovo;
+            dados[a.V, a.W] = pesoNovo;
             a.peso = pesoNovo;
             return a;
         }
+
+        public void substituirVertice(int v, int w)
+        {
+            int valorTroca = 0;
+
+            for (int i = 0; i < Lenght; i++)
+            {
+                valorTroca = dados[i, w];
+                dados[i, w] = dados[i, v];
+                dados[i, v] = valorTroca;
+
+                valorTroca = dados[w, i];
+                dados[w, i] = dados[v, i];
+                dados[v, i] = valorTroca;
+            }
+        }
+
+        public int[] vizinhos(int v)
+        {
+            int[] vizinhaca = new int[Lenght];
+            for (int i = 0; i < Lenght; i++)
+            {
+                if (dados[v, i] != 0)
+                {
+                    vizinhaca.Append(i);
+                }
+
+            }
+            return vizinhaca;
+        }
+
+        
 
         public override string toString()
         {

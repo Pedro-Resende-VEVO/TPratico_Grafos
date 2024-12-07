@@ -44,6 +44,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Aresta.cs" />
+    <Compile Include="BuscaEmProfundidade.cs" />
     <Compile Include="Edwaldo.cs" />
     <Compile Include="Grafo.cs" />
     <Compile Include="Lista.cs" />

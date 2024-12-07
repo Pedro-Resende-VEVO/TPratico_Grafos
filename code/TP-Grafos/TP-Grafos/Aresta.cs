@@ -19,5 +19,10 @@ namespace TP_Grafos
             this.W = W;
             this.peso = peso;
         }
+
+        public string toString()
+        {
+            return "("+(V+1)+") -"+peso+"-> ("+(W+1)+")";
+        }
     }
 }

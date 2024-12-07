@@ -18,6 +18,8 @@ namespace TP_Grafos
 
         abstract public void addAresta(int V, int W, int peso);
 
+        abstract public int[] vizinhos(int v);
+
         abstract public string toString();
     }
 }

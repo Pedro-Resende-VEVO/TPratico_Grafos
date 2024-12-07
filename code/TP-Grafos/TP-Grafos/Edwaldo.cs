@@ -52,6 +52,16 @@ namespace TP_Grafos
             return rng.Next(grafo.Lenght - 1);
         }
 
+        public void buscaEmProfundidade(int v)
+        {
+            BuscaEmProfundidade bp = new BuscaEmProfundidade(grafo);
+            bp.execucao(v);
+        }
+        public void buscaEmLargura(int v)
+        {
+
+        }
+
         public bool verticeDestinoValido(int w)
         {
             return (w > 0 || w <= grafo.Lenght - 1) ? true : throw new Exception("Vértice de destino inválido");
