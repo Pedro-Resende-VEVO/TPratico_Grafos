@@ -173,5 +173,5 @@ public static string BuscaEmLarguraListaDirecionado(int v)
             }
         }
     }
+    return caminho.ToString();
 }
-public int[]
