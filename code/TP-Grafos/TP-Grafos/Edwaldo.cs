@@ -27,6 +27,11 @@ namespace TP_Grafos
             }
             grafo = new Lista(N);
             formato = "Lista de Adjacência";
+
+
+
+            grafo = new Matriz(N);
+            formato = "Matriz de Adjacência";
         }
 
 
@@ -58,7 +63,7 @@ namespace TP_Grafos
 
         public string representacao()
         {
-            return "";
+            return grafo.toString();
         }
     }
 }

@@ -122,7 +122,7 @@ namespace TP_Grafos
         {
             try
             {
-                Console.WriteLine("#Arestas restantes: "+ arestasRestantes+"#");
+                Console.WriteLine("\n#Arestas restantes: "+ arestasRestantes+"#");
                 Console.WriteLine("Quantas arestas terá o vértice " + indiceLiteral[indexVertice] + "?");
                 Console.Write("RESPOSTA: ");
                 int qntArestas = Convert.ToInt32(Console.ReadLine());

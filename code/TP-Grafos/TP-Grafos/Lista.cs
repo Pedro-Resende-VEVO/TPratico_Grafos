@@ -12,6 +12,7 @@ namespace TP_Grafos
 
         public Lista(int N) : base(N)
         {
+            dados = new Dictionary<int, int>[N];
             for (int i = 0; i< N; i++)
             {
                 dados[i] = new Dictionary<int, int>();
@@ -32,9 +33,9 @@ namespace TP_Grafos
                 sb.Append("|" +i+ "|");
                 for (int j = 0; j < dados[i].Count(); j++)
                 {
-                    sb.Append("-> " + dados[i][j]);
+                    sb.Append(" --> " + dados[i][j]);
                 }
-                sb.AppendLine("-x");
+                sb.AppendLine("--x");
             }
 
             return sb.ToString();

@@ -24,18 +24,19 @@ namespace TP_Grafos
         public override string toString()
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append(" 0");
-            for (int i = 1; i < Lenght; i++)
+            sb.Append("  ");
+            for (int i = 0; i < Lenght; i++)
             {
-                sb.Append("-" + (i + 1));
+                sb.Append((i + 1) + " ");
             }
+
             sb.AppendLine();
             for (int i = 0; i < Lenght; i++)
             {
                 sb.Append(i + 1 + "|");
                 for (int j = 0; j < Lenght; j++)
                 {
-                    sb.Append(i + 1 + "|");
+                    sb.Append(dados[i,j] + "|");
                 }
                 sb.AppendLine();
             }
