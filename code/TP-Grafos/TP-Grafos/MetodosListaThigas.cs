@@ -135,7 +135,43 @@ public static string BuscaEmLarguraListaDirecionado(int v)
     for(int i = 0; i < Lenght;i++)
     {
         L[i]=0;
-        nivel
+        nivel[i]=0;
+        pai[i]= null;
+
+    }
+    int t =0;
+    if(L[v]==0)
+    {
+        t++;
+        L[v]=t;
+        fila.Enqueue(v);
+        caminho.AppendLine($"Raiz: {v+1}");
+
+        while(fila.Count > 0)
+        {
+            int atual = fila.Dequeue();
+            foreach(int w in grafo.vizinhos(atual))
+            {
+                if(L[w]==0)
+                {
+                    pai[w]= atual;
+                    nivel[w]= nivel[v]+1;
+                    t= t+1;
+                    L[w]=t;
+                    fila.Enqueue(w);
+                    caminho.AppendLine($"Aresta de árvore: {atual+1} -> {w+1}");
+
+                }
+                else if(pai[atual] != w && nivel[atual]>nivel[w])
+                {
+                    caminho.AppendLine($"Aresta de retorno: {atual +1} -> {w+1}");
+                }
+                else
+                {
+                    caminho.AppendLine($"Aresta de cruzamento {atual+1}-> {w+1}");
+                }
+            }
+        }
     }
 }
 public int[]
