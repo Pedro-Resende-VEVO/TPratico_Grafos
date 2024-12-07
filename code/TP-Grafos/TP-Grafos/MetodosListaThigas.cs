@@ -1,39 +1,71 @@
 //  List<Dictionary<int,int>> Grafo = new List<Dictionary<int,int>>();
-public List<(int origem, int destino, int peso)> EncontrarArestasAdjacentes(int v,int w)
+public int[] ImprimirArestasAdjacentes(int v,int w)
 {
-    var arestasAdjacentes= new List<(int origem,int destino, int peso);
-    if(v>= 0 && v < grafo.Count)
+    int[] arestasAdjacentes= new int[Length];
+    if(w>= 0 && w < Lenght)
     {
-        foreach(var destino in grafo[v])
+        for(int i = 0  ; i < Lenght;i++)
         {
-            if(destino.Key != w)
+            if(dados[w,i]!= 0 && dados[w,i] != dados[v,w])
             {
-                arestasAdjacentes.Add((v,destino.Key,destino.Value));
-            }
-        }
-    }
-    if(w>=0 && w<= grafo.Count )
-    {
-        for(int i = 0 ;i<grafo.Count;i++)
-        {
-            if(grafo[i].ContainsKey(w) && i != v)
-            {
-                arestasAdjacentes.Add(i,w,grafo[i][w])
+                arestasAdjacentes.Append(dados[w,i]);
             }
         }
     }
     return arestasAdjacentes;
 }
 
-public List<(int)> EncontrarVerticeAdjacente(int v)
+public int[] ImprimirVerticesAdjacente(int v)
 {
-    var verticesAdjacentes= new List<(int vertice);
-    if(v>=0 && v< grafo.Count)
+    if(v<=0 || v >= Lenght)
     {
-        foreach(var destino in grafo[v])
-        {
-            verticesAdjacentes.Add((destino.Key))
-        }
+        return new int[0];
     }
-    return verticesAdjacentes;
+   return dados[v].ToArray();
+}
+
+public int [] ImprimirArestasIncidentes(int v, int w)
+{
+    int[] arestasIncidentes = new int[Lenght];
+    if(w>=0 && w< Lenght)
+    {
+        for(int i = 0 ; i< Lenght;i++)
+        {
+            if(dados[w,i]!=0 && dados[w,i] != dados[v,w])
+            {
+                arestasIncidentes.Append(dados[w,i]);
+            }
+
+        }
+        return arestasIncidentes;
+    }
+}
+
+// public int[] ImprimirVerticesIncidentes(int v)
+// {
+//     if(v<=0 || v >= Lenght)
+//     {
+//         return new int[0];
+//     }
+//    return dados[v].ToArray();
+// }
+
+public int ImprimirGrau(int v)
+{
+    if(v==0 || v>Lenght)
+    {
+        return 0;
+    }
+    return dados[v].Count;
+}
+public bool VerificarAdjacencia(int v, int w)
+{
+    if(v == 0 || w==0 || v> Lenght|| w>Lenght)
+    {
+        return false;
+    }
+    return dados[v].Contains(w)|| dados[w].Contains(v);  
+}
+public void SubstituirPeso(Aresta a)
+{
 }
