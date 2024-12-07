@@ -220,70 +220,109 @@ namespace TP_Grafos
                 {
                     Aresta E;
                     int V;
+                    int W;
+                    string versaoAntiga;
                     int resp = menuDIMAC();
                     switch (resp)
                     {
                         case 1:
                             Console.Clear();
-                            Console.WriteLine("##- Arestas adjacentes a aresta A -##");
+                            Console.WriteLine("##- Arestas adjacentes a aresta \"A\" -##");
                             E = inputAresta();
-                            Console.WriteLine(edwaldo.arestaAdjacente(E));
+                            foreach (Aresta x in edwaldo.adjacencia(E))
+                            {
+                                Console.WriteLine(x.toString());
+                            }
                             continuar();
                             break;
 
                         case 2:
                             Console.Clear();
-                            Console.WriteLine("##- Vértices adjacentes ao vértice V -##");
-                            E = inputAresta();
-                            Console.WriteLine(edwaldo.verticeAdjacente(E));
+                            Console.WriteLine("##- Vértices adjacentes ao vértice \"V\" -##");
+                            V = inputVertice();
+
+                            Console.Clear();
+                            Console.WriteLine("##- Vértices adjacentes ao vértice \"V\" -##");
+                            Console.WriteLine(edwaldo.adjacencia(V));
                             continuar();
                             break;
 
                         case 3:
                             Console.Clear();
-                            Console.WriteLine("##- Arestas adjacentes a aresta A -##");
+                            Console.WriteLine("##- Arestas incidentes a aresta \"A\" -##");
                             E = inputAresta();
-                            Console.WriteLine(edwaldo.arestaAdjacente(E));
+
+                            Console.Clear();
+                            Console.WriteLine("##- Arestas incidentes a \"A\" -##\n");
+                            foreach (Aresta x in edwaldo.incidencia(E))
+                            {
+                                Console.WriteLine(x.toString());
+                            }
+
                             continuar();
                             break;
 
-                        case 4:
-                            Console.Clear();
-                            Console.WriteLine("##- Vértices adjacentes ao vértice V -##");
-                            E = inputAresta();
-                            Console.WriteLine(edwaldo.verticeAdjacente(E));
-                            continuar();
-                            break;
+                        //case 4:
+                        //    Console.Clear();
+                        //    Console.WriteLine("##- Vértices incidentes a aresta \"V\" -##");
+                        //    V = inputVertice();
+                        //    Console.WriteLine(edwaldo.incidencia(V));
+                        //    continuar();
+                        //    break;
 
                         case 5:
                             Console.Clear();
-                            Console.WriteLine("##- Grau do vértice V -##");
-                            E = inputVertice();
-                            Console.WriteLine(edwaldo.verticeAdjacente(E));
+                            Console.WriteLine("##- Grau do vértice \"V\" -##");
+                            V = inputVertice();
+
+                            Console.Clear();
+                            Console.WriteLine(edwaldo.grau(V));
                             continuar();
                             break;
 
                         case 6:
                             Console.Clear();
-                            Console.WriteLine("##- Verificar adjacência entre vértices V e W -##");
-                            E = inputAresta();
-                            Console.WriteLine(edwaldo.verticeAdjacente(E));
+                            Console.WriteLine("##- Verificar adjacência entre vértices \"V\" e \"W\" -##");
+                            Console.WriteLine("Vértice W:");
+                            V = inputVertice();
+                            Console.WriteLine("Vértice W:");
+
+                            W = inputVertice();
+                            Console.Clear();
+                            Console.WriteLine(edwaldo.adjacencia(V,W));
                             continuar();
                             break;
 
                         case 7:
                             Console.Clear();
-                            Console.WriteLine("##- Substituir peso de aresta A -##");
+                            Console.WriteLine("##- Substituir peso de aresta \"A\" -##");
                             E = inputAresta();
-                            Console.WriteLine(edwaldo.arestaAdjacente(E));
+                            Console.WriteLine("Qual o peso deseja que a aresta tenha?");
+                            Console.Write("RESPOSTA: ");
+                            int respPeso = Convert.ToInt32(Console.ReadLine());
+
+                            Console.Clear();
+                            Console.WriteLine("##- Substituir peso de aresta \"A\" -##");
+                            Console.WriteLine("\nVersão nova");
+                            Console.WriteLine(edwaldo.substituir(E, respPeso).toString());
                             continuar();
                             break;
 
                         case 8:
                             Console.Clear();
                             Console.WriteLine("##- Trocar vértice V e W de posição -##");
-                            E = inputAresta();
-                            Console.WriteLine(edwaldo.verticeAdjacente(E));
+                            versaoAntiga = edwaldo.representacao();
+                            Console.WriteLine("Vértice W:");
+                            V = inputVertice();
+                            Console.WriteLine("Vértice W:");
+                            W = inputVertice();
+                            edwaldo.substituir(V, W);
+
+
+                            Console.Clear();
+                            Console.WriteLine("##- Trocar vértice V e W de posição -##");
+                            Console.WriteLine("Versão anterior");
+                            Console.WriteLine(versaoAntiga);
                             continuar();
                             break;
 
@@ -382,7 +421,7 @@ namespace TP_Grafos
                 {
                     throw new Exception("Aresta inválida, favor tentar novamente");
                 }
-                return arestas[resp];
+                return arestas[resp - 1];
             }
             catch (Exception e)
             {
@@ -407,7 +446,7 @@ namespace TP_Grafos
                 {
                     throw new Exception("Aresta inválida, favor tentar novamente");
                 }
-                return vertices[resp];
+                return vertices[resp - 1];
             }
             catch (Exception e)
             {
@@ -418,6 +457,7 @@ namespace TP_Grafos
 
         public static void continuar()
         {
+            Console.WriteLine("\n #- Grafo atual -#\n" + edwaldo.representacao());
             Console.WriteLine("(Pressione qualquer tecla para continuar)");
             Console.ReadKey();
             Console.Clear();

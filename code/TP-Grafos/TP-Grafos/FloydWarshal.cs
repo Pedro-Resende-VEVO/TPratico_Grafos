@@ -18,7 +18,7 @@ namespace TP_Grafos
 
         }
 
-        public void executar(int o)
+        public int[,] execucao(int o)
         {
             for (int i = 0; i < grafo.Lenght; i++)
             {
@@ -42,6 +42,8 @@ namespace TP_Grafos
                     }
                 }
             }
+
+            return distancia;
         }
     }
 }

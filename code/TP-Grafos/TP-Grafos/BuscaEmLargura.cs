@@ -22,5 +22,23 @@ namespace TP_Grafos
             pai = new int[this.grafo.Lenght];
             t = 0;
         }
+
+        public string execucao(int v)
+        {
+            t++;
+            tempoDescoberta[v] = t;
+
+            foreach (int w in grafo.vizinhos(v))
+            {
+                if (tempoDescoberta[w] == 0)
+                {
+                    pai[w] = v;
+                    execucao(w);
+                }
+            }
+            t++;
+            tempoTermino[v] = t;
+            return "";
+        }
     }
 }

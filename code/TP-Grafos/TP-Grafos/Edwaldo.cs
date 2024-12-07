@@ -85,9 +85,10 @@ namespace TP_Grafos
             return grafo.verticesAdjacentes(V);
         }
 
-        public bool adjacencia(int V, int W)
+        public string adjacencia(int V, int W)
         {
-            return grafo.existeAdjacencia(V, W);
+            return (grafo.existeAdjacencia(V, W)) ? "EXISTE a adjacência entre os vértices" : "NÃO EXISTE tal adjacência";
+
         }
 
         public Aresta[] incidencia(Aresta A)
@@ -100,6 +101,11 @@ namespace TP_Grafos
         //    return grafo.verticesIncidentes(V);
         //}
 
+        public string grau(int V)
+        {
+            return "Grau de Entrada: " + grafo.grauEntrada(V) + "\nGrau de Saída: " + grafo.grauSaida(V);
+        }
+
         public Aresta substituir(Aresta A, int peso)
         {
             return grafo.substituirPeso(A, peso);
@@ -110,24 +116,24 @@ namespace TP_Grafos
             grafo.substituirVertice(V, W);
         }
 
-        public void buscaEmLargura(int v)
+        public string buscaEmLargura(int v)
         {
-            new BuscaEmLargura(grafo).execucao(v);
+            return new BuscaEmLargura(grafo).execucao(v);
         }
 
-        public void buscaEmProfundidade(int v)
+        public string buscaEmProfundidade(int v)
         {
-            new BuscaEmProfundidade(grafo).execucao(v);
+            return new BuscaEmProfundidade(grafo).execucao(v);
         }
 
-        public void Dijkstra(int v)
+        public string Dijkstra(int o, int d)
         {
-            new Dijkstra(grafo).execucao(v);
+            return new Dijkstra(grafo).execucao(o,d);
         }
 
-        public void FloydWarshal(int v)
+        public int[,] FloydWarshal(int o)
         {
-            new FloydWarshal(grafo).execucao(v);
+            return new FloydWarshal(grafo).execucao(o);
         }
 
 

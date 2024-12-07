@@ -23,7 +23,7 @@ namespace TP_Grafos
             t = 0;
         }
 
-        public void execucao(int v)
+        public string execucao(int v)
         {
             t++;
             tempoDescoberta[v] = t;
@@ -38,6 +38,7 @@ namespace TP_Grafos
             }
             t++;
             tempoTermino[v] = t;
+            return "";
         }
     }
 }
