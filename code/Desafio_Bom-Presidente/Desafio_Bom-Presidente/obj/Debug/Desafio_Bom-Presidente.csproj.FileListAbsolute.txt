@@ -1,0 +1,7 @@
+C:\Users\pedro\OneDrive\Documentos\Trabalhinhos\TPratico_Grafos\code\Desafio_Bom-Presidente\Desafio_Bom-Presidente\bin\Debug\Desafio_Bom-Presidente.exe.config
+C:\Users\pedro\OneDrive\Documentos\Trabalhinhos\TPratico_Grafos\code\Desafio_Bom-Presidente\Desafio_Bom-Presidente\bin\Debug\Desafio_Bom-Presidente.exe
+C:\Users\pedro\OneDrive\Documentos\Trabalhinhos\TPratico_Grafos\code\Desafio_Bom-Presidente\Desafio_Bom-Presidente\bin\Debug\Desafio_Bom-Presidente.pdb
+C:\Users\pedro\OneDrive\Documentos\Trabalhinhos\TPratico_Grafos\code\Desafio_Bom-Presidente\Desafio_Bom-Presidente\obj\Debug\Desafio_Bom-Presidente.csproj.AssemblyReference.cache
+C:\Users\pedro\OneDrive\Documentos\Trabalhinhos\TPratico_Grafos\code\Desafio_Bom-Presidente\Desafio_Bom-Presidente\obj\Debug\Desafio_Bom-Presidente.csproj.CoreCompileInputs.cache
+C:\Users\pedro\OneDrive\Documentos\Trabalhinhos\TPratico_Grafos\code\Desafio_Bom-Presidente\Desafio_Bom-Presidente\obj\Debug\Desafio_Bom-Presidente.exe
+C:\Users\pedro\OneDrive\Documentos\Trabalhinhos\TPratico_Grafos\code\Desafio_Bom-Presidente\Desafio_Bom-Presidente\obj\Debug\Desafio_Bom-Presidente.pdb
