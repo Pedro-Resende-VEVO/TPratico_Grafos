@@ -50,21 +50,34 @@ namespace TP_Grafos
 
         public Aresta[] ImprimirArestasAdjacentes(Aresta a)
         {
-            Aresta[] arestasAdjacentes= new Aresta[Length];
-            if(a.W >= 0 && a.W < Lenght)
+            
+            if(a.V >= 0 && a.W >= Lenght)
             {
-                for(int i = 0  ; i < Lenght;i++)
+                return new Aresta[0];
+            }
+             List<Aresta> adjacentes = new List<Aresta>();
+             foreach(var aresta in dados[a.V])
+             {
+                if(aresta.W != a.W)
                 {
-                    if(dados[w][i].peso != null && dados[w][i].peso != dados[v][w].peso )
-                    {
-                    arestasAdjacentes.Append(dados[w][i]);
-                    }
+                    adjacentes.Add(aresta);
+                }
+
+             }
+
+            
+            foreach(var aresta in dados[a.W])
+            {
+                if(aresta.V != a.V)
+                {
+                    adjacentes.Add(aresta);
                 }
             }
-            return arestasAdjacentes;
+            return adjacentes.ToArray();
+            
         }
 
-        public int[] ImprimirVerticesAdjacente(int v)
+       public int[] ImprimirVerticesAdjacente(int v)
         {
             if(v<=0 || v >= Lenght)
             {
@@ -75,8 +88,8 @@ namespace TP_Grafos
 
         public Aresta [] ImprimirArestasIncidentes(int v)
         {
-            Aresta[] arestasIncidentes = new int[Lenght];
-            if(w>=0 && w< Lenght)
+          
+            if(v < 0 || v >= Lenght)
             {
                 return new Aresta[0];      
             }   
@@ -126,44 +139,56 @@ namespace TP_Grafos
         }
         public void SubstituirPeso(Aresta a,int pesoaresta)
         {
-            if(a.peso <=null || pesoaresta <= null)
+            if(a.V >=Lenght || a.W => Lenght)
             {
-                Console.WriteLine("Inválido")
-                return;
+                return null;
             }
-                a.peso = pesoaresta;
+            foreach(var aresta in dados[a.V])
+            {
+                if (aresta.W == a.W)
+                {
+                    aresta.peso = peso;
+                    return aresta;
+                }
+            }
+            return null;
         }
 
         public void TrocarVertices(int v,int w) // o método troca as conexões entre os vértices, não os vértices em si(troca reversa)
         {
-            if(v<=0||w<=0 || v>=Lenght||w>=Lenght)
+            if(v>=Lenght||w>=Lenght)
             {
-                Console.WriteLine("inválido")
-                return;
+                throw new ArgumentException("Inválido")
             }
-            for (int i = 0 ; i< dados.Lenght; i++)
-            {
-                Aresta aresta = dados[i][j] // criada a variável temporária pra facilitar o acesso 
-                if(aresta.V == v) 
-                {
-                    aresta.V == w;
-                }                       // é feita a troca de arestas de saída de v para w e vice-versa
-                else if(aresta.V == w)
-                {
-                    aresta.V = v;
-                }
-                if(aresta.W == v)   //é feita a troca de arestas de entrada para v e w
-                {
-                    aresta.W = w;
-                }
-                else if( aresta.W == w)
-                {
-                    aresta.W =v;
-                }   
-            }
+            
             var temp = dados[v];
             dados[v]= dados[w];
             dados[w]= temp;
+
+            for (int i = 0 ; i< Lenght; i++)
+            {
+                foreach(var aresta in dados[i])
+                {
+                    if(aresta.V == v)
+                    {
+                        aresta.V = w;
+                    }
+                    else if(aresta.V == w)
+                    {
+                        aresta.V = v;
+                    }
+                    if(aresta.W == v)
+                    {
+                        aresta.W = w;
+
+                    }
+                    else if (aresta.W == w)
+                    {
+                        aresta.W = v ;
+                    }
+                }
+            }
+            
         }   
 
 
@@ -222,10 +247,9 @@ namespace TP_Grafos
                     }
                 }
             }
-            return caminho.ToString();
+           return caminho.ToString();
         }
-    
-    
-    }
-
+    }   
 }
+
+
