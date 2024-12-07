@@ -249,12 +249,12 @@ namespace TP_Grafos
 
                         case 3:
                             Console.Clear();
-                            Console.WriteLine("##- Arestas incidentes a aresta \"A\" -##");
-                            E = inputAresta();
+                            Console.WriteLine("##- Arestas incidentes ao vértice \"V\" -##");
+                            V = inputVertice();
 
                             Console.Clear();
-                            Console.WriteLine("##- Arestas incidentes a \"A\" -##\n");
-                            foreach (Aresta x in edwaldo.incidencia(E))
+                            Console.WriteLine("##- Arestas incidentes a \"V\" -##\n");
+                            foreach (Aresta x in edwaldo.incidencia(V))
                             {
                                 Console.WriteLine(x.toString());
                             }
@@ -345,16 +345,20 @@ namespace TP_Grafos
                         case 11:
                             Console.Clear();
                             Console.WriteLine("##- Algoritimo de Dijkistra -##");
-                            E = inputAresta();
-                            Console.WriteLine(edwaldo.verticeAdjacente(E));
+                            Console.WriteLine("Vértice origem do caminho:");
+                            V = inputVertice();
+                            Console.WriteLine("Vértice destino do caminho:");
+                            W = inputVertice();
+                            Console.WriteLine(edwaldo.Dijkstra(V,W));
                             continuar();
                             break;
 
                         case 12:
                             Console.Clear();
                             Console.WriteLine("##- Algoritimo de Floyd Warshall -##");
-                            E = inputAresta();
-                            Console.WriteLine(edwaldo.verticeAdjacente(E));
+                            Console.WriteLine("Vértice origem do caminho:");
+                            V = inputVertice();
+                            Console.WriteLine(edwaldo.FloydWarshal(V));
                             continuar();
                             break;
 

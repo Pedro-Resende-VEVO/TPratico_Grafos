@@ -38,7 +38,7 @@ namespace TP_Grafos
 
         private Aresta menorOpcao(int v)
         {
-            Aresta[] incidentes = grafo.incidentesVertice(v);
+            Aresta[] incidentes = grafo.arestasIncidentes(v);
             int menorPeso = incidentes.Min(c => c.peso + distancia[v]);
             return incidentes[0];
             //return incidentes.Where(b => !explorados.Contains(b.V) && b.peso == menorPeso);

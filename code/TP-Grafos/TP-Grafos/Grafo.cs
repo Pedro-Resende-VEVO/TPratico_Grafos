@@ -11,7 +11,7 @@ namespace TP_Grafos
         public int Lenght;
         public Grafo(int N)
         {
-            Lenght = 0;
+            Lenght = N;
         }
 
         abstract public bool indiceOcupado(int V, int W);
@@ -22,9 +22,9 @@ namespace TP_Grafos
 
         abstract public int[] verticesAdjacentes(int v);
 
-        abstract public int[] incidentesAresta(Aresta a);
+        abstract public int[] verticesIncidentes(Aresta a);
 
-        abstract public Aresta[] incidentesVertice(int v);
+        abstract public Aresta[] arestasIncidentes(int v);
 
         abstract public int grauEntrada(int v);
 

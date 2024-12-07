@@ -57,7 +57,7 @@ namespace TP_Grafos
             List<Aresta> arestasTotal = new List<Aresta>();
             for (int i = 0; i < grafo.Lenght; i++)
             {
-                foreach(Aresta V in grafo.incidentesVertice(i))
+                foreach(Aresta V in grafo.arestasIncidentes(i))
                 {
                     arestasTotal.Add(V);
                 }
@@ -93,12 +93,12 @@ namespace TP_Grafos
 
         public int[] incidencia(Aresta A)
         {
-            return grafo.incidentesAresta(A);
+            return grafo.verticesIncidentes(A);
         }
 
         public Aresta[] incidencia(int V)
         {
-            return grafo.incidentesVertice(V);
+            return grafo.arestasIncidentes(V);
         }
 
         public string grau(int V)
@@ -113,6 +113,10 @@ namespace TP_Grafos
 
         public void substituir(int V, int W)
         {
+            if (V < 0 || W < 0 || V >= grafo.Lenght || W >= grafo.Lenght)
+            {
+                throw new Exception("Inváldo");
+            }
             grafo.substituirVertice(V, W);
         }
 

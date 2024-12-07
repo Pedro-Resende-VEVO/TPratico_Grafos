@@ -13,7 +13,6 @@ namespace TP_Grafos
         public Matriz(int N) :base(N)
         {
             dados = new int[N, N];
-            Lenght = N;
         }
 
         override public void addAresta(int V, int W, int peso)
@@ -52,7 +51,7 @@ namespace TP_Grafos
             return adjacentes;
         }
 
-        override public Aresta[] incidentesVertice(int v)
+        override public Aresta[] arestasIncidentes(int v)
         {
             Aresta[] incidentes = new Aresta[Lenght];
             for (int i = 0; i < Lenght; i++)
@@ -65,18 +64,18 @@ namespace TP_Grafos
             return incidentes;
         }
 
-        //public Aresta[] verticesIncidentes(Aresta a)
-        //{
-        //    Aresta[] adjacentes = new Aresta[Lenght];
-        //    for (int i = 0; i < Lenght; i++)
-        //    {
-        //        if (dados[i, a.V] != 0)
-        //        {
-        //            adjacentes.Append(new Aresta(a.V, dados[i, a.V]));
-        //        }
-        //    }
-        //    return adjacentes;
-        //}
+        override public int[] verticesIncidentes(Aresta a)
+        {
+            int[] incidentes = new int[Lenght];
+            for (int i = 0; i < Lenght; i++)
+            {
+                if (dados[i, a.V] != 0)
+                {
+                    //incidentes[i] = a.V, dados[i, a.V]);
+                }
+            }
+            return incidentes;
+        }
 
         override public int grauEntrada(int v)
         {
