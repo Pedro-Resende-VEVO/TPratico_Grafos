@@ -52,7 +52,7 @@ namespace TP_Grafos
             return adjacentes;
         }
 
-        override public Aresta[] arestaIncidente(int v)
+        override public Aresta[] incidentesVertice(int v)
         {
             Aresta[] incidentes = new Aresta[Lenght];
             for (int i = 0; i < Lenght; i++)

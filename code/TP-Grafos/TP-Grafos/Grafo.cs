@@ -22,9 +22,9 @@ namespace TP_Grafos
 
         abstract public int[] verticesAdjacentes(int v);
 
-        abstract public Aresta[] arestaIncidente(int v);
+        abstract public int[] incidentesAresta(Aresta a);
 
-        abstract public Aresta[] arestasIncidentes(Aresta a);
+        abstract public Aresta[] incidentesVertice(int v);
 
         abstract public int grauEntrada(int v);
 
