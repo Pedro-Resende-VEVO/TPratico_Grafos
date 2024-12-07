@@ -27,11 +27,6 @@ namespace TP_Grafos
             }
             grafo = new Lista(N);
             formato = "Lista de Adjacência";
-
-
-
-            grafo = new Matriz(N);
-            formato = "Matriz de Adjacência";
         }
 
         public void addAresta(int peso)
@@ -42,8 +37,7 @@ namespace TP_Grafos
             {
                 V = sortearVertice();
                 W = sortearVertice();
-            } while (V != W);
-       
+            } while (V == W || grafo.indiceOcupado(V,W) == true);
             grafo.addAresta(V, W, peso);
         }
 
@@ -55,7 +49,7 @@ namespace TP_Grafos
         public int sortearVertice()
         {
             Random rng = new Random();
-            return rng.Next(grafo.Lenght);
+            return rng.Next(grafo.Lenght - 1);
         }
 
         public bool verticeDestinoValido(int w)
@@ -75,7 +69,7 @@ namespace TP_Grafos
 
         public bool qntArestaGrafoValida(int N, int M)
         {
-            return (M <= N - 1 && M >= 0) ? true : throw new Exception("Quantidade de arestas inválido");
+            return (M <= N * 2 && M >= 0) ? true : throw new Exception("Quantidade de arestas inválido");
         }
 
         public string representacao()

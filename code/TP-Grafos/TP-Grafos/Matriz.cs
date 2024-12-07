@@ -21,6 +21,12 @@ namespace TP_Grafos
             dados[W, V] = peso;
         }
 
+        override public bool indiceOcupado(int V, int W)
+        {
+            return (dados[W, V] != 0) ? true : false;
+        }
+
+
         public int[] arestasAdjacentes(int V, int W)
         {
             int[] adjacentes = new int[Lenght];

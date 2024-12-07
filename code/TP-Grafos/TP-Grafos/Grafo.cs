@@ -14,6 +14,8 @@ namespace TP_Grafos
             Lenght = 0;
         }
 
+        abstract public bool indiceOcupado(int V, int W);
+
         abstract public void addAresta(int V, int W, int peso);
 
         abstract public string toString();
