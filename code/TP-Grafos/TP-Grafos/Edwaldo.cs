@@ -75,15 +75,61 @@ namespace TP_Grafos
             return verticesTotal.ToArray();
         }
 
-        public void buscaEmProfundidade(int v)
+        public Aresta[] adjacencia(Aresta A)
         {
-            BuscaEmProfundidade bp = new BuscaEmProfundidade(grafo);
-            bp.execucao(v);
+            return grafo.arestasAdjacentes(A);
         }
+
+        public int[] adjacencia(int V)
+        {
+            return grafo.verticesAdjacentes(V);
+        }
+
+        public bool adjacencia(int V, int W)
+        {
+            return grafo.existeAdjacencia(V, W);
+        }
+
+        public Aresta[] incidencia(Aresta A)
+        {
+            return grafo.arestasIncidentes(A);
+        }
+
+        //public int[] incidencia(int V)
+        //{
+        //    return grafo.verticesIncidentes(V);
+        //}
+
+        public Aresta substituir(Aresta A, int peso)
+        {
+            return grafo.substituirPeso(A, peso);
+        }
+
+        public void substituir(int V, int W)
+        {
+            grafo.substituirVertice(V, W);
+        }
+
         public void buscaEmLargura(int v)
         {
-
+            new BuscaEmLargura(grafo).execucao(v);
         }
+
+        public void buscaEmProfundidade(int v)
+        {
+            new BuscaEmProfundidade(grafo).execucao(v);
+        }
+
+        public void Dijkstra(int v)
+        {
+            new Dijkstra(grafo).execucao(v);
+        }
+
+        public void FloydWarshal(int v)
+        {
+            new FloydWarshal(grafo).execucao(v);
+        }
+
 
         public bool verticeDestinoValido(int w)
         {

@@ -24,7 +24,7 @@ namespace TP_Grafos
 
         abstract public Aresta[] arestaIncidente(int v);
 
-        abstract public Aresta[] verticesIncidentes(Aresta a);
+        abstract public Aresta[] arestasIncidentes(Aresta a);
 
         abstract public int grauEntrada(int v);
 
