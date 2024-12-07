@@ -248,7 +248,7 @@ namespace TP_Grafos
                             count = 0;
                             foreach(int x in edwaldo.adjacencia(V))
                             {
-                                Console.WriteLine(count + ": " + x);
+                                Console.WriteLine(count + ": (" + x + ")");
                             }
                             continuar();
                             break;
@@ -275,7 +275,7 @@ namespace TP_Grafos
                             count = 0;
                             foreach (int x in edwaldo.incidencia(E))
                             {
-                                Console.WriteLine(count + ": " + x);
+                                Console.WriteLine(count + ": (" + x + ")");
                             }
                             continuar();
                             break;
@@ -373,6 +373,7 @@ namespace TP_Grafos
                             break;
 
                         case 13:
+                            Console.Clear();
                             fim = true;
                             break;
 
@@ -405,7 +406,8 @@ namespace TP_Grafos
                 Console.WriteLine("----Buscas/Algoritimos:");
                 Console.WriteLine(
                     "  9) Busca em Largura \n  10) Busca em Profundidade" +
-                       "\n  11) Algoritmo de Dijkstra \n  12) Algoritmo de Floyd Warshal");
+                       "\n  11) Algoritmo de Dijkstra \n  12) Algoritmo de Floyd Warshal"+
+                            "\n13) Voltar ao menu principal");
                 Console.WriteLine("############################");
                 Console.Write("ESCOLHA UMA OPÇÃO: ");
                 int resp = Convert.ToInt32(Console.ReadLine());

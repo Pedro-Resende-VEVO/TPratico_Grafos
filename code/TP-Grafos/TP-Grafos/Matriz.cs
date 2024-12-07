@@ -28,54 +28,54 @@ namespace TP_Grafos
 
         override public Aresta[] arestasAdjacentes(Aresta a)
         {
-            Aresta[] adjacentes = new Aresta[Lenght];
+            List<Aresta> adjacentes = new List<Aresta>();
             for (int i = 0; i < Lenght; i++)
             {
                 if  (dados[a.V, i] != 0)
                 {
-                    adjacentes.Append(new Aresta(a.V, i, dados[a.V, i]));
+                    adjacentes.Add(new Aresta(a.V, i, dados[a.V, i]));
                 }
             }
-            return adjacentes;
+            return adjacentes.ToArray();
         }
 
         override public int[] verticesAdjacentes(int v)
         {
-            int[] adjacentes = new int[Lenght];
+            List<int> adjacentes = new List<int>();
             for (int i = 0; i < Lenght; i++)
             {
                 if (dados[i, v] != 0)
                 {
-                    adjacentes.Append(i);
+                    adjacentes.Add(i);
                 }
             }
-            return adjacentes;
+            return adjacentes.ToArray();
         }
 
         override public Aresta[] arestasIncidentes(int v)
         {
-            Aresta[] incidentes = new Aresta[Lenght];
+            List<Aresta> incidentes = new List<Aresta>();
             for (int i = 0; i < Lenght; i++)
             {
                 if (dados[i, v] != 0)
                 {
-                    incidentes.Append(new Aresta(i, v, dados[i, v]));
+                    incidentes.Add(new Aresta(i, v, dados[i, v]));
                 }
             }
-            return incidentes;
+            return incidentes.ToArray();
         }
 
         override public int[] verticesIncidentes(Aresta a)
         {
-            int[] incidentes = new int[Lenght];
+            List<int> incidentes = new List<int>();
             for (int i = 0; i < Lenght; i++)
             {
                 if (dados[i, a.V] != 0)
                 {
-                    //incidentes[i] = a.V, dados[i, a.V]);
+                    incidentes.Add(dados[i, a.V]);
                 }
             }
-            return incidentes;
+            return incidentes.ToArray();
         }
 
         override public int grauEntrada(int v)
@@ -134,16 +134,16 @@ namespace TP_Grafos
 
         override public int[] vizinhos(int v)
         {
-            int[] vizinhaca = new int[Lenght];
+            List<int> vizinhaca = new List<int>();
             for (int i = 0; i < Lenght; i++)
             {
                 if (dados[v, i] != 0)
                 {
-                    vizinhaca.Append(i);
+                    vizinhaca.Add(i);
                 }
 
             }
-            return vizinhaca;
+            return vizinhaca.ToArray();
         }
 
         override public string toString()

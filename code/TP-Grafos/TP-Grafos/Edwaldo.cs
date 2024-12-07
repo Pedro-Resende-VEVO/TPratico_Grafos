@@ -64,7 +64,7 @@ namespace TP_Grafos
                     arestasTotal.Add(V);
                 }
             }
-            return arestasTotal.ToArray();
+            return (arestasTotal.Count != 0) ? arestasTotal.ToArray() : throw new Exception("Valor não encontrado");
         }
 
         public int[] verticesDisponiveis()
@@ -74,39 +74,37 @@ namespace TP_Grafos
             {
                 verticesTotal.Add(i);
             }
-            return verticesTotal.ToArray();
+            return (verticesTotal.Count != 0) ? verticesTotal.ToArray() : throw new Exception("Valor não encontrado");
         }
 
         public Aresta[] adjacencia(Aresta A)
         {
             Aresta[] resp = grafo.arestasAdjacentes(A);
-
-            if (resp.Count() == 0){
-                throw new Exception("Não existem adjacências para a aresta selecionada");
-            }
-            return resp;
+            return (resp.Length != 0) ? resp : throw new Exception("Não existem adjacências para a aresta selecionada");
         }
 
 
         public int[] adjacencia(int V)
         {
-            return grafo.verticesAdjacentes(V);
+            int[] resp = grafo.verticesAdjacentes(V);
+            return (resp.Length != 0) ? resp : throw new Exception("Não existem adjacências para o vértice selecionado");
         }
 
         public string adjacencia(int V, int W)
         {
             return (grafo.existeAdjacencia(V, W)) ? "EXISTE a adjacência entre os vértices" : "NÃO EXISTE tal adjacência";
-
         }
 
         public int[] incidencia(Aresta A)
         {
-            return grafo.verticesIncidentes(A);
+            int[] resp = grafo.verticesIncidentes(A);
+            return (resp.Length != 0) ? resp : throw new Exception("Não existem incidências para a aresta selecionada");
         }
 
         public Aresta[] incidencia(int V)
         {
-            return grafo.arestasIncidentes(V);
+            Aresta[] resp = grafo.arestasIncidentes(V);
+            return (resp.Length != 0) ? resp : throw new Exception("Não existem incidências para o vértice selecionado");
         }
 
         public string grau(int V)
