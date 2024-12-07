@@ -15,6 +15,7 @@ namespace TP_Grafos
         {
             edwaldo = new Edwaldo();
             indiceLiteral = new char[] { 'A', 'B', 'C', 'D', 'E', 'F' };
+            int[] G = new int[2];
             bool fim = false;
             do
             {
@@ -26,7 +27,8 @@ namespace TP_Grafos
                     {
                         case 1:
                             Console.Clear();
-                            string grafoString = criarGrafo();
+                            G = criarGrafo();
+                            string grafoString = distribuirArestas(G[1]);
                             Console.Clear();
                             Console.WriteLine("Parabéns! você acabou de criar um grafo no formato de " + edwaldo.formato);
                             Console.WriteLine("Sua representação pode ser vista abaixo:\n");
@@ -38,10 +40,15 @@ namespace TP_Grafos
 
                         case 2:
                             Console.Clear();
-                            Console.WriteLine("Criaremos ");
+                            Console.WriteLine("Antes de utilizarmos o grafo no formato DIMIC, criaremos um!!\n");
+                            G = criarGrafo();
+                            criarDIMIC(G[0], G[1]);
+
                             Console.WriteLine("Sua representação pode ser vista abaixo:\n");
+                            Console.WriteLine("\n(Aperte qualquer tecla para voltar ao menu)");
+                            Console.ReadKey();
+                            Console.Clear();
                             int resp_repre = menuDIMAC();
-                            executarRepresentacao(resp_repre);
                             break;
 
                         case 3:
@@ -59,6 +66,7 @@ namespace TP_Grafos
             }
             while (fim == false);
         }
+
         static void cabecalho()
         {
             Console.WriteLine("------------------------------------------");
@@ -86,7 +94,7 @@ namespace TP_Grafos
             }
         }
 
-        static string criarGrafo()
+        static int[] criarGrafo()
         {
             try
             {
@@ -103,52 +111,33 @@ namespace TP_Grafos
                 edwaldo.definirGrafo(N, M);
                 Console.Clear();
 
-                int arestasRestantes = M;
-                for (int i = 0; i <= N; i++) {
-                    if (arestasRestantes > 0){
-                        arestasRestantes = criarAresta(i, arestasRestantes);
-                    }
-                }
-
-                return edwaldo.representacao();
-                }
+                return new int[] {N,M};
+            }
             catch (Exception e)
             {
                 erro(e);
                 return criarGrafo();
             }
-
         }
 
-        static int criarAresta(int indexVertice, int arestasRestantes)
+        static string distribuirArestas(int M)
         {
             try
             {
-                Console.WriteLine("\n#Arestas restantes: "+ arestasRestantes+"#");
-                Console.WriteLine("Quantas arestas terá o vértice " + indiceLiteral[indexVertice] + "?");
-                Console.Write("RESPOSTA: ");
-                int qntArestas = Convert.ToInt32(Console.ReadLine());
-
-                if (qntArestas > arestasRestantes || edwaldo.qntArestaVerticeValida(qntArestas) == false){
-                    throw new Exception("Quantidade inválida, favor tente novamente");
-                }
-
-                int peso = 0;
-                for (int j = 0; j < qntArestas; j++)
+                for (int j = 0; j < M; j++)
                 {
-                    Console.WriteLine("\nPeso da aresta " + (j + 1) + " - Vértice "+ indiceLiteral[indexVertice]);
+                    Console.WriteLine("\nPeso da aresta " + (j + 1));
                     Console.Write("RESPOSTA: ");
-                    peso = Convert.ToInt32(Console.ReadLine());
-                    edwaldo.addAresta(indexVertice, peso);
+                    int peso = Convert.ToInt32(Console.ReadLine());
+                    edwaldo.addAresta(peso);
                 }
 
-                return arestasRestantes - qntArestas;
-                }
+                return edwaldo.representacao();
+            }
             catch (Exception e)
             {
                 erro(e);
-                return criarAresta(indexVertice, arestasRestantes);
-
+                return distribuirArestas(M);
             }
         }
 
@@ -171,6 +160,48 @@ namespace TP_Grafos
                 Console.WriteLine("(Pressione qualquer tecla para continuar)");
                 Console.ReadKey();
                 return menuDIMAC();
+            }
+        }
+
+        private static void criarDIMIC(int N, int M)
+        {
+            try
+            {
+                int arestasRestantes = M;
+                for (int v = 0; v <= N; v++)
+                {
+                    if (arestasRestantes > 0)
+                    {
+                        Console.WriteLine("\n#Arestas restantes: " + arestasRestantes + "#");
+                        Console.WriteLine("Quantas arestas terá o vértice " + indiceLiteral[v] + "?");
+                        Console.Write("RESPOSTA: ");
+                        int qntArestas = Convert.ToInt32(Console.ReadLine());
+
+                        if (qntArestas > arestasRestantes || edwaldo.qntArestaVerticeValida(qntArestas) == false)
+                        {
+                            throw new Exception("Quantidade inválida, favor tente novamente");
+                        }
+
+                        int peso = 0;
+                        for (int j = 0; j < qntArestas; j++)
+                        {
+                            Console.WriteLine("Escolha entre 1 e " + (N-1));
+                            Console.WriteLine("\nVértice incidente W:");
+                            Console.Write("RESPOSTA: ");
+                            int w = Convert.ToInt32(Console.ReadLine());
+
+                            Console.WriteLine("\nPeso da aresta " + (j + 1) + " - Vértice " + indiceLiteral[v]);
+                            Console.Write("RESPOSTA: ");
+                            peso = Convert.ToInt32(Console.ReadLine());
+                            edwaldo.addAresta(v, w, peso);
+                        }
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+                erro(e);
+                return criarDIMIC(N,M);
             }
         }
         public static void erro(Exception e)

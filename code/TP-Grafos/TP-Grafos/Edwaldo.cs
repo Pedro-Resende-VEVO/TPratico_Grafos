@@ -34,10 +34,22 @@ namespace TP_Grafos
             formato = "Matriz de Adjacência";
         }
 
-
-        public void addAresta(int verticeOrigem, int peso)
+        public void addAresta(int peso)
         {
-            grafo.addAresta(verticeOrigem, sortearVertice(), peso);
+            int V = 0;
+            int W = 0;
+            do
+            {
+                V = sortearVertice();
+                W = sortearVertice();
+            } while (V != W);
+       
+            grafo.addAresta(V, W, peso);
+        }
+
+        public void addAresta(int verticeOrigem, int verticeDestino, int peso)
+        {
+            grafo.addAresta(verticeOrigem, verticeDestino, peso);
         }
 
         public int sortearVertice()

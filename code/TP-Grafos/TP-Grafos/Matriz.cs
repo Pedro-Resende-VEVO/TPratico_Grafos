@@ -26,9 +26,9 @@ namespace TP_Grafos
             int[] adjacentes = new int[Lenght];
             for (int i = 0; i < Lenght; i++)
             {
-                if  (dados[V,i] != 0 && dados[V, i] != dados[V, W])
+                if  (dados[W,i] != 0 && dados[W, i] != dados[W, V])
                 {
-                    adjacentes.Append(dados[V, i]);
+                    adjacentes.Append(dados[W, i]);
                 }
             }
             return adjacentes;
