@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.SqlServer.Server;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,11 +12,9 @@ namespace TP_Grafos
     {
         private double CRITERIO_DENSIDADE = 0.5;
         private Grafo grafo;
-        public string formato;
 
         public Edwaldo()
         {
-            formato = "";
         }
 
         public void definirGrafo(int N, int M)
@@ -23,10 +22,13 @@ namespace TP_Grafos
             if (M / N * (N - 1) > CRITERIO_DENSIDADE)
             {
                 grafo = new Matriz(N);
-                formato = "Matriz de Adjacência";
             }
             grafo = new Lista(N);
-            formato = "Lista de Adjacência";
+        }
+
+        public string formatoString()
+        {
+            return "grafo no formato de " + grafo.formato;
         }
 
         public void addAresta(int peso)
@@ -49,7 +51,7 @@ namespace TP_Grafos
         public int sortearVertice()
         {
             Random rng = new Random();
-            return rng.Next(grafo.Lenght - 1);
+            return rng.Next(grafo.Lenght);
         }
 
         public Aresta[] arestasDisponiveis()
@@ -77,8 +79,14 @@ namespace TP_Grafos
 
         public Aresta[] adjacencia(Aresta A)
         {
-            return grafo.arestasAdjacentes(A);
+            Aresta[] resp = grafo.arestasAdjacentes(A);
+
+            if (resp.Count() == 0){
+                throw new Exception("Não existem adjacências para a aresta selecionada");
+            }
+            return resp;
         }
+
 
         public int[] adjacencia(int V)
         {
@@ -158,7 +166,7 @@ namespace TP_Grafos
 
         public bool qntArestaGrafoValida(int N, int M)
         {
-            return (M <= N * 2 && M >= 0) ? true : throw new Exception("Quantidade de arestas inválido");
+            return (M <= N && M >= 0) ? true : throw new Exception("Quantidade de arestas inválido");
         }
 
         public string representacao()

@@ -29,9 +29,9 @@ namespace TP_Grafos
                         case 1:
                             Console.Clear();
                             G = criarGrafo();
-                            distribuirArestas(G[1]);
+                            distribuirArestas(G[1], 0);
                             Console.Clear();
-                            Console.WriteLine("Parabéns! você acabou de criar um grafo no formato de " + edwaldo.formato);
+                            Console.WriteLine("Parabéns! você acabou de criar um " + edwaldo.formatoString());
                             Console.WriteLine("Sua representação pode ser vista abaixo:\n");
                             Console.WriteLine(edwaldo.representacao());
                             Console.WriteLine("\n(Aperte qualquer tecla para voltar ao menu)");
@@ -40,12 +40,14 @@ namespace TP_Grafos
                             break;
 
                         case 2:
+                            StringBuilder sb = new StringBuilder();
                             Console.Clear();
                             Console.WriteLine("Antes de utilizarmos o grafo no formato DIMIC, criaremos um!!\n");
                             G = criarGrafo();
-                            grafoString = criarDIMIC(G[0], G[1]);
+                            sb.AppendLine(G[0] + " " + G[1]);
+                            grafoString = criarDIMIC(G[0], G[1], sb);
 
-                            Console.WriteLine("Parabéns! você acabou de criar um grafo no formato de " + edwaldo.formato);
+                            Console.WriteLine("Parabéns! você acabou de criar um " + edwaldo.formatoString());
                             Console.WriteLine("Sua representação padrão pode ser vista abaixo:\n");
                             Console.WriteLine(edwaldo.representacao());
 
@@ -126,11 +128,12 @@ namespace TP_Grafos
             }
         }
 
-        static void distribuirArestas(int M)
+        static void distribuirArestas(int M, int count)
         {
+            int j = 0;
             try
             {
-                for (int j = 0; j < M; j++)
+                for (j = count; j < M; j++)
                 {
                     Console.WriteLine("\nPeso da aresta " + (j + 1));
                     Console.Write("RESPOSTA: ");
@@ -143,22 +146,19 @@ namespace TP_Grafos
             catch (Exception e)
             {
                 erro(e);
-                distribuirArestas(M);
+                distribuirArestas(M, j);
             }
         }
 
-        private static string criarDIMIC(int N, int M)
+        private static string criarDIMIC(int N, int arestasRestantes, StringBuilder sb)
         {
             try
             {
-                StringBuilder sb = new StringBuilder();
-                int arestasRestantes = M;
-
-                sb.AppendLine(N + " " + M);
                 for (int v = 0; v <= N; v++)
                 {
                     if (arestasRestantes > 0)
                     {
+                        Console.WriteLine("#################################");
                         Console.WriteLine("\n#Arestas restantes: " + arestasRestantes + "#");
                         Console.WriteLine("Quantas arestas terá o vértice " + (v+1) + "?");
                         Console.Write("RESPOSTA: ");
@@ -172,6 +172,8 @@ namespace TP_Grafos
                         arestasRestantes = arestasRestantes - qntArestas;
                         for (int j = 0; j < qntArestas; j++)
                         {
+                            Console.Clear();
+                            Console.WriteLine("--- "+(j+1)+"° aresta --");
                             sb.AppendLine(arestaDIMIC(N, v));
                         }
                     }
@@ -181,7 +183,7 @@ namespace TP_Grafos
             catch (Exception e)
             {
                 erro(e);
-                return criarDIMIC(N,M);
+                return criarDIMIC(N, arestasRestantes, sb);
             }
         }
 
@@ -189,19 +191,18 @@ namespace TP_Grafos
         {
             try
             {
-                Console.Clear();
-                Console.WriteLine("\nA areta irá incidir sob qual vértice?");
+                Console.WriteLine("\nIrá incidir sob qual vértice?");
                 Console.WriteLine("(Escolha entre o vértice 1 e vértice " + N + ")");
                 Console.Write("RESPOSTA: ");
                 int w = Convert.ToInt32(Console.ReadLine());
                 edwaldo.verticeDestinoValido(w);
 
-                Console.WriteLine("\nPeso da aresta\n(Entre vértice " + (v+1) + "  -> vértice " + (w + 1) + ")");
+                Console.WriteLine("\nPeso da aresta\n(Entre vértice " + (v+1) + "  -> vértice " + w + ")");
                 Console.Write("RESPOSTA: ");
                 int peso = Convert.ToInt32(Console.ReadLine());
                 edwaldo.addAresta(v, w - 1, peso);
 
-                return ((v + 1) + " " + (w + 1) + " " + peso);
+                return ((v + 1) + " " + w + " " + peso);
             }
             catch (Exception e)
             {
@@ -221,6 +222,7 @@ namespace TP_Grafos
                     Aresta E;
                     int V;
                     int W;
+                    int count;
                     string versaoAntiga;
                     int resp = menuDIMAC();
                     switch (resp)
@@ -243,7 +245,11 @@ namespace TP_Grafos
 
                             Console.Clear();
                             Console.WriteLine("##- Vértices adjacentes ao vértice \"V\" -##");
-                            Console.WriteLine(edwaldo.adjacencia(V));
+                            count = 0;
+                            foreach(int x in edwaldo.adjacencia(V))
+                            {
+                                Console.WriteLine(count + ": " + x);
+                            }
                             continuar();
                             break;
 
@@ -262,13 +268,17 @@ namespace TP_Grafos
                             continuar();
                             break;
 
-                        //case 4:
-                        //    Console.Clear();
-                        //    Console.WriteLine("##- Vértices incidentes a aresta \"V\" -##");
-                        //    V = inputVertice();
-                        //    Console.WriteLine(edwaldo.incidencia(V));
-                        //    continuar();
-                        //    break;
+                        case 4:
+                            Console.Clear();
+                            Console.WriteLine("##- Vértices incidentes a aresta \"V\" -##");
+                            E = inputAresta();
+                            count = 0;
+                            foreach (int x in edwaldo.incidencia(E))
+                            {
+                                Console.WriteLine(count + ": " + x);
+                            }
+                            continuar();
+                            break;
 
                         case 5:
                             Console.Clear();
@@ -283,9 +293,9 @@ namespace TP_Grafos
                         case 6:
                             Console.Clear();
                             Console.WriteLine("##- Verificar adjacência entre vértices \"V\" e \"W\" -##");
-                            Console.WriteLine("Vértice W:");
+                            Console.WriteLine("\nVértice W:");
                             V = inputVertice();
-                            Console.WriteLine("Vértice W:");
+                            Console.WriteLine("\nVértice W:");
 
                             W = inputVertice();
                             Console.Clear();
@@ -312,9 +322,9 @@ namespace TP_Grafos
                             Console.Clear();
                             Console.WriteLine("##- Trocar vértice V e W de posição -##");
                             versaoAntiga = edwaldo.representacao();
-                            Console.WriteLine("Vértice W:");
+                            Console.WriteLine("\nVértice W:");
                             V = inputVertice();
-                            Console.WriteLine("Vértice W:");
+                            Console.WriteLine("\nVértice W:");
                             W = inputVertice();
                             edwaldo.substituir(V, W);
 
@@ -385,17 +395,17 @@ namespace TP_Grafos
                 Console.WriteLine("########- Menu de DIMAC -#######");
                 Console.WriteLine("----Impressões:");
                 Console.WriteLine(
-                    "1) Arestas adjacentes a aresta \"A\" \n2) Vértices adjacentes a um vértice \"V\"" +
-                       "\n3) Arestas incidentes a um vértice \"V\" \n4) Vértices incidentes a uma aresta \"A\"" +
-                            "\n5) grau do vértice \"V\"");
+                    "  1) Arestas adjacentes a aresta \"A\" \n  2) Vértices adjacentes a um vértice \"V\"" +
+                       "\n  3) Arestas incidentes a um vértice \"V\" \n  4) Vértices incidentes a uma aresta \"A\"" +
+                            "\n  5) grau do vértice \"V\"");
                 Console.WriteLine("----Operações:");
                 Console.WriteLine(
-                    "6) Dois vértices são adjacentes? \n7) Substituir peso de uma aresta \"A\"" +
-                       "\n8) Trocar dois vértices");
+                    "  6) Dois vértices são adjacentes? \n  7) Substituir peso de uma aresta \"A\"" +
+                       "\n  8) Trocar dois vértices");
                 Console.WriteLine("----Buscas/Algoritimos:");
                 Console.WriteLine(
-                    "9) Busca em Largura \n10) Busca em Profundidade" +
-                       "\n11) Algoritmo de Dijkstra \n12) Algoritmo de Floyd Warshal");
+                    "  9) Busca em Largura \n  10) Busca em Profundidade" +
+                       "\n  11) Algoritmo de Dijkstra \n  12) Algoritmo de Floyd Warshal");
                 Console.WriteLine("############################");
                 Console.Write("ESCOLHA UMA OPÇÃO: ");
                 int resp = Convert.ToInt32(Console.ReadLine());
@@ -413,15 +423,15 @@ namespace TP_Grafos
         {
             try
             {
-                Console.WriteLine("Qual dessas arestas deseja selecionar?");
                 Aresta[] arestas = edwaldo.arestasDisponiveis();
+                Console.WriteLine("Qual dessas arestas deseja selecionar?");
                 for (int i = 0; i < arestas.Count(); i++)
                 {
                     Console.WriteLine((i+1) + ": " + arestas[i].toString());
                 }
                 Console.Write("ESCOLHA UMA OPÇÃO: ");
                 int resp = Convert.ToInt32(Console.ReadLine());
-                if (resp > arestas.Count() || resp < 0)
+                if (resp > arestas.Count() + 1 || resp < 0)
                 {
                     throw new Exception("Aresta inválida, favor tentar novamente");
                 }
@@ -442,7 +452,7 @@ namespace TP_Grafos
                 int[] vertices = edwaldo.verticesDisponiveis();
                 for (int i = 0; i < vertices.Count(); i++)
                 {
-                    Console.WriteLine((i + 1) + ": (" + vertices[i] + ")");
+                    Console.WriteLine((i + 1) + ": (" + (vertices[i] + 1) + ")");
                 }
                 Console.Write("ESCOLHA UMA OPÇÃO: ");
                 int resp = Convert.ToInt32(Console.ReadLine());

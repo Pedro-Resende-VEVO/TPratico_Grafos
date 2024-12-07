@@ -9,9 +9,12 @@ namespace TP_Grafos
     abstract class Grafo
     {
         public int Lenght;
+        public string formato;
+
         public Grafo(int N)
         {
             Lenght = N;
+            formato = "";
         }
 
         abstract public bool indiceOcupado(int V, int W);

@@ -13,6 +13,7 @@ namespace TP_Grafos
         public Matriz(int N) :base(N)
         {
             dados = new int[N, N];
+            formato = "Matriz de Adjacência";
         }
 
         override public void addAresta(int V, int W, int peso)

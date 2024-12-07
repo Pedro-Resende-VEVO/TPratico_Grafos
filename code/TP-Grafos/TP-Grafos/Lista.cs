@@ -17,6 +17,8 @@ namespace TP_Grafos
             {
                 dados[i] = new List<Aresta>();
             }
+            formato = "Lista de Adjacência";
+
         }
 
         override public void addAresta(int V, int W, int peso)
@@ -31,66 +33,45 @@ namespace TP_Grafos
 
         override public Aresta[] arestasAdjacentes(Aresta a)
         {
-            Aresta[] arestasAdjacentes= new Aresta[Lenght];
-            if (a.W >= 0 && a.W < Lenght)
+            List<Aresta> arestasAdjacentes= new List<Aresta>();
+            foreach(Aresta x in dados[a.V])
             {
-                for(int i = 0  ; i < Lenght;i++)
+                if (a.GetHashCode() != x.GetHashCode())
                 {
-                    if(dados[a.W][i].peso != 0 && dados[a.W][i].peso != dados[a.V][a.W].peso )
-                    {
-                        arestasAdjacentes.Append(dados[a.W][i]);
-                    }
+                    arestasAdjacentes.Add(x);
                 }
             }
-            return arestasAdjacentes;
+            return arestasAdjacentes.ToArray();
         }
 
         override public int[] verticesAdjacentes(int v)
         {
-            if (v<=0 || v >= Lenght)
-            {
-                throw new Exception("");
-            }   
             return dados[v].Select(aresta => aresta.W).ToArray();
         }
 
         override public Aresta [] arestasIncidentes(int v)
         {
-            Aresta[] arestasIncidentes = new Aresta[Lenght];
-            if (v >= 0 && v < Lenght)
-            {
-                return new Aresta[0];      
-            }   
             return dados[v].ToArray();
         }
 
         override public int[] verticesIncidentes(Aresta a)
         {
-        
-            if(a.V<=0 || a.W<=0 ||a.V >= Lenght|| a.W >=Lenght)
-            {
-                return new int[0];
-            }   
-
             return new int[] {a.V,a.W};
         }
 
         override public int grauEntrada(int v)
         {
-            if(v<=0 || v>Lenght)
-            {
-                return 0;
-            }
             return dados[v].Count;
         }
 
         override public int grauSaida(int v)
         {
-            if (v <= 0 || v > Lenght)
+            int qnt = 0;
+            foreach (List<Aresta> lista in dados)
             {
-                return 0;
+                qnt = qnt + lista.Count(a => a.V == v);
             }
-            return dados[v].Count;
+            return qnt;
         }
 
         override public bool existeAdjacencia(int v, int w)
