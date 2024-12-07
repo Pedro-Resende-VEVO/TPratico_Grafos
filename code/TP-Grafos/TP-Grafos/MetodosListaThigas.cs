@@ -52,7 +52,7 @@ public int [] ImprimirArestasIncidentes(int v, int w)
 
 public int ImprimirGrau(int v)
 {
-    if(v==0 || v>Lenght)
+    if(v<=0 || v>Lenght)
     {
         return 0;
     }
@@ -60,7 +60,7 @@ public int ImprimirGrau(int v)
 }
 public bool VerificarAdjacencia(int v, int w)
 {
-    if(v == 0 || w==0 || v> Lenght|| w>Lenght)
+    if(v <= 0 || w<=0 || v>= Lenght|| w>=Lenght)
     {
         return false;
     }
@@ -69,3 +69,32 @@ public bool VerificarAdjacencia(int v, int w)
 public void SubstituirPeso(Aresta a)
 {
 }
+public void TrocarVertices(int v,int w)
+{
+    if(v<=0||w<=0 || v>=Lenght||w>=Lenght)
+    {
+        Console.WriteLine("inválido")
+    }
+    else
+    {
+        for(int i =0; i<dados.Lenght;i++)
+        {
+            for(int j =0 ; j<dados[i].Count;j++)
+            {
+                if(dados[i][j]==v)
+                {
+                    dados[i][j] = w;
+                }
+                else if(dados[i][j]== w)
+                {
+                    dados[i][j] = v;
+                }
+            }
+        }
+    }
+}
+public int[] BuscaEmLarguraLista(int v)
+{
+
+}
+pubcli int[]
