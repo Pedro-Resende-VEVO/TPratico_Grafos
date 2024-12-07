@@ -52,6 +52,29 @@ namespace TP_Grafos
             return rng.Next(grafo.Lenght - 1);
         }
 
+        public Aresta[] arestasDisponiveis()
+        {
+            List<Aresta> arestasTotal = new List<Aresta>();
+            for (int i = 0; i < grafo.Lenght; i++)
+            {
+                foreach(Aresta V in grafo.arestaIncidente(i))
+                {
+                    arestasTotal.Add(V);
+                }
+            }
+            return arestasTotal.ToArray();
+        }
+
+        public int[] verticesDisponiveis()
+        {
+            List<int> verticesTotal = new List<int>();
+            for (int i = 0; i < grafo.Lenght; i++)
+            {
+                verticesTotal.Add(i);
+            }
+            return verticesTotal.ToArray();
+        }
+
         public void buscaEmProfundidade(int v)
         {
             BuscaEmProfundidade bp = new BuscaEmProfundidade(grafo);

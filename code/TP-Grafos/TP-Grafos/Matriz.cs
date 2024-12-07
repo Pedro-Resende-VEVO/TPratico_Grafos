@@ -26,7 +26,7 @@ namespace TP_Grafos
             return (dados[V, W] != 0) ? true : false;
         }
 
-        public Aresta[] arestasAdjacentes(Aresta a)
+        override public Aresta[] arestasAdjacentes(Aresta a)
         {
             Aresta[] adjacentes = new Aresta[Lenght];
             for (int i = 0; i < Lenght; i++)
@@ -39,7 +39,7 @@ namespace TP_Grafos
             return adjacentes;
         }
 
-        public int[] verticesAdjacentes(int v)
+        override public int[] verticesAdjacentes(int v)
         {
             int[] adjacentes = new int[Lenght];
             for (int i = 0; i < Lenght; i++)
@@ -52,7 +52,7 @@ namespace TP_Grafos
             return adjacentes;
         }
 
-        public Aresta[] arestaIncidente(int v)
+        override public Aresta[] arestaIncidente(int v)
         {
             Aresta[] incidentes = new Aresta[Lenght];
             for (int i = 0; i < Lenght; i++)
@@ -78,7 +78,7 @@ namespace TP_Grafos
         //    return adjacentes;
         //}
 
-        public int grauEntrada(int v)
+        override public int grauEntrada(int v)
         {
             int grau = 0;
             for (int i = 0; i < Lenght; i++)
@@ -91,7 +91,7 @@ namespace TP_Grafos
             return grau;
         }
 
-        public int grauSaida(int v)
+        override public int grauSaida(int v)
         {
             int grau = 0;
             for (int i = 0; i < Lenght; i++)
@@ -104,19 +104,19 @@ namespace TP_Grafos
             return grau;
         }
 
-        public bool existeAdjacencia(int v, int w)
+        override public bool existeAdjacencia(int v, int w)
         {
             return (dados[w, v] != 0 || dados[w, v] != 0) ? true : false;
         }
 
-        public Aresta substituirPeso(Aresta a, int pesoNovo)
+        override public Aresta substituirPeso(Aresta a, int pesoNovo)
         {
             dados[a.V, a.W] = pesoNovo;
             a.peso = pesoNovo;
             return a;
         }
 
-        public void substituirVertice(int v, int w)
+        override public void substituirVertice(int v, int w)
         {
             int valorTroca = 0;
 
@@ -132,7 +132,7 @@ namespace TP_Grafos
             }
         }
 
-        public int[] vizinhos(int v)
+        override public int[] vizinhos(int v)
         {
             int[] vizinhaca = new int[Lenght];
             for (int i = 0; i < Lenght; i++)
@@ -146,9 +146,7 @@ namespace TP_Grafos
             return vizinhaca;
         }
 
-        
-
-        public override string toString()
+        override public string toString()
         {
             StringBuilder sb = new StringBuilder();
             sb.Append("  ");
