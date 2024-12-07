@@ -21,6 +21,19 @@ namespace TP_Grafos
             dados[W, V] = peso;
         }
 
+        public int[] arestasAdjacentes(int V, int W)
+        {
+            int[] adjacentes = new int[Lenght];
+            for (int i = 0; i < Lenght; i++)
+            {
+                if  (dados[V,i] != 0 && dados[V, i] != dados[V, W])
+                {
+                    adjacentes.Append(dados[V, i]);
+                }
+            }
+            return adjacentes;
+        } 
+
         public override string toString()
         {
             StringBuilder sb = new StringBuilder();

@@ -36,11 +36,13 @@ namespace TP_Grafos
                             Console.Clear();
                             break;
 
-                        //case 2:
-                        //    Console.Clear();
-                        //    int resp_repre = menuDIMAC();
-                        //    executarRepresentacao(resp_repre);
-                        //    break;
+                        case 2:
+                            Console.Clear();
+                            Console.WriteLine("Criaremos ");
+                            Console.WriteLine("Sua representação pode ser vista abaixo:\n");
+                            int resp_repre = menuDIMAC();
+                            executarRepresentacao(resp_repre);
+                            break;
 
                         case 3:
                             fim = true;
@@ -150,6 +152,27 @@ namespace TP_Grafos
             }
         }
 
+        static int menuDIMAC()
+        {
+            try
+            {
+                
+                Console.WriteLine("########- Menu de DIMAC -#######");
+                Console.WriteLine("1) Lista de Adjacência \n2) Matriz de Adjacência \n 3) Matriz de Incidência \n 4) Sair");
+                Console.WriteLine("#######################");
+                Console.Write("ESCOLHA UMA OPÇÃO: ");
+                int resp = Convert.ToInt32(Console.ReadLine());
+
+                return (resp <= 0 || resp > 4) ? resp : throw new Exception("Opção indisponível");
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                Console.WriteLine("(Pressione qualquer tecla para continuar)");
+                Console.ReadKey();
+                return menuDIMAC();
+            }
+        }
         public static void erro(Exception e)
         {
             Console.WriteLine("\n" + e);
@@ -157,28 +180,5 @@ namespace TP_Grafos
             Console.ReadKey();
             Console.Clear();
         }
-
-        // static int menuDIMAC()
-        // {
-        //     try
-        //     {
-        //         cabecalho();
-        //         Console.WriteLine("########- Menu de DIMAC -#######");
-        //         Console.WriteLine("1) Lista de Adjacência \n2) Matriz de Adjacência \n 3) Matriz de Incidência \n 4) Sair");
-        //         Console.WriteLine("#######################");
-        //         Console.Write("ESCOLHA UMA OPÇÃO: ");
-        //         int resp = Convert.ToInt32(Console.ReadLine());
-
-        //         return (resp <= 0 || resp > 4) ? resp : throw new Exception("Opção indisponível");
-        //     }
-        //     catch (Exception e)
-        //     {
-        //         Console.WriteLine(e);
-        //         Console.WriteLine("(Pressione qualquer tecla para continuar)");
-        //         Console.ReadKey();
-        //         return menuDIMAC();
-        //     }
-        // }
-
     }
 }
