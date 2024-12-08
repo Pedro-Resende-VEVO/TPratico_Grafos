@@ -9,7 +9,7 @@ namespace TP_Grafos
     class Lista : Grafo
     {
         private List<Aresta>[] dados;
-
+        //construtores da classe Lista
         public Lista(int N) :base(N)
         {
             dados = new List<Aresta>[N];
@@ -20,7 +20,7 @@ namespace TP_Grafos
             formato = "Lista de Adjacência";
 
         }
-
+        
         override public void addAresta(int V, int W, int peso)
         {
             dados[W].Add(new Aresta(V, W, peso));
@@ -106,10 +106,37 @@ namespace TP_Grafos
             a.peso = peso;
             return a;
         }
-
+        
         override public void substituirVertice(int v, int w) // o método troca as conexões entre os vértices, não os vértices em si(troca reversa)
         {
-
+            if(v<=0||w<=0 || v>=Lenght||w>=Lenght)
+            {
+                Console.WriteLine("inválido")
+                return;
+            }
+            for (int i = 0 ; i< dados.Lenght; i++)
+            {
+                Aresta aresta = dados[i][j] // criada a variável temporária pra facilitar o acesso 
+                if(aresta.V == v) 
+                {
+                    aresta.V == w;
+                }                       // é feita a troca de arestas de saída de v para w e vice-versa
+                else if(aresta.V == w)
+                {
+                    aresta.V = v;
+                }
+                if(aresta.W == v)   //é feita a troca de arestas de entrada para v e w
+                {
+                    aresta.W = w;
+                }
+                else if( aresta.W == w)
+                {
+                    aresta.W =v;
+                }
+            }
+            var temp = dados[v];
+            dados[v]= dados[w];
+            dados[w]= temp;
         }
 
         override public int[] vizinhos(int v)
@@ -135,3 +162,4 @@ namespace TP_Grafos
 
     }
 }
+//
