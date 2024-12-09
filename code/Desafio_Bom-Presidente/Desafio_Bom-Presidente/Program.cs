@@ -13,7 +13,7 @@ namespace Desafio_Bom_Presidente
 
         static void Main(string[] args)
         {
-
+            
             int T = int.Parse(Console.ReadLine()); // leitura dos mapas/casos de teste
 
             for (int t = 0; t < T; t++)
