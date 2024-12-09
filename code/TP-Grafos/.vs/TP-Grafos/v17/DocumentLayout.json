@@ -3,11 +3,23 @@
   "WorkspaceRootPath": "C:\\Users\\pedro\\OneDrive\\Documentos\\Trabalhinhos\\TPratico_Grafos\\code\\TP-Grafos\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{5CD9F0C9-A15C-4DD6-AB9F-4FA0C231FBBA}|TP-Grafos\\TP-Grafos.csproj|c:\\users\\pedro\\onedrive\\documentos\\trabalhinhos\\tpratico_grafos\\code\\tp-grafos\\tp-grafos\\edwaldo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5CD9F0C9-A15C-4DD6-AB9F-4FA0C231FBBA}|TP-Grafos\\TP-Grafos.csproj|solutionrelative:tp-grafos\\edwaldo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{5CD9F0C9-A15C-4DD6-AB9F-4FA0C231FBBA}|TP-Grafos\\TP-Grafos.csproj|C:\\Users\\pedro\\OneDrive\\Documentos\\Trabalhinhos\\TPratico_Grafos\\code\\TP-Grafos\\tp-grafos\\lista.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{5CD9F0C9-A15C-4DD6-AB9F-4FA0C231FBBA}|TP-Grafos\\TP-Grafos.csproj|solutionrelative:tp-grafos\\lista.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{5CD9F0C9-A15C-4DD6-AB9F-4FA0C231FBBA}|TP-Grafos\\TP-Grafos.csproj|c:\\users\\pedro\\onedrive\\documentos\\trabalhinhos\\tpratico_grafos\\code\\tp-grafos\\tp-grafos\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{5CD9F0C9-A15C-4DD6-AB9F-4FA0C231FBBA}|TP-Grafos\\TP-Grafos.csproj|C:\\Users\\pedro\\OneDrive\\Documentos\\Trabalhinhos\\TPratico_Grafos\\code\\TP-Grafos\\tp-grafos\\matriz.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5CD9F0C9-A15C-4DD6-AB9F-4FA0C231FBBA}|TP-Grafos\\TP-Grafos.csproj|solutionrelative:tp-grafos\\matriz.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5CD9F0C9-A15C-4DD6-AB9F-4FA0C231FBBA}|TP-Grafos\\TP-Grafos.csproj|C:\\Users\\pedro\\OneDrive\\Documentos\\Trabalhinhos\\TPratico_Grafos\\code\\TP-Grafos\\tp-grafos\\grafo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5CD9F0C9-A15C-4DD6-AB9F-4FA0C231FBBA}|TP-Grafos\\TP-Grafos.csproj|solutionrelative:tp-grafos\\grafo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5CD9F0C9-A15C-4DD6-AB9F-4FA0C231FBBA}|TP-Grafos\\TP-Grafos.csproj|C:\\Users\\pedro\\OneDrive\\Documentos\\Trabalhinhos\\TPratico_Grafos\\code\\TP-Grafos\\tp-grafos\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{5CD9F0C9-A15C-4DD6-AB9F-4FA0C231FBBA}|TP-Grafos\\TP-Grafos.csproj|solutionrelative:tp-grafos\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
@@ -25,18 +37,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{5CD9F0C9-A15C-4DD6-AB9F-4FA0C231FBBA}|TP-Grafos\\TP-Grafos.csproj|C:\\Users\\pedro\\OneDrive\\Documentos\\Trabalhinhos\\TPratico_Grafos\\code\\TP-Grafos\\tp-grafos\\buscaemprofundidade.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{5CD9F0C9-A15C-4DD6-AB9F-4FA0C231FBBA}|TP-Grafos\\TP-Grafos.csproj|solutionrelative:tp-grafos\\buscaemprofundidade.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{5CD9F0C9-A15C-4DD6-AB9F-4FA0C231FBBA}|TP-Grafos\\TP-Grafos.csproj|C:\\Users\\pedro\\OneDrive\\Documentos\\Trabalhinhos\\TPratico_Grafos\\code\\TP-Grafos\\tp-grafos\\grafo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5CD9F0C9-A15C-4DD6-AB9F-4FA0C231FBBA}|TP-Grafos\\TP-Grafos.csproj|solutionrelative:tp-grafos\\grafo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{5CD9F0C9-A15C-4DD6-AB9F-4FA0C231FBBA}|TP-Grafos\\TP-Grafos.csproj|C:\\Users\\pedro\\OneDrive\\Documentos\\Trabalhinhos\\TPratico_Grafos\\code\\TP-Grafos\\tp-grafos\\edwaldo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5CD9F0C9-A15C-4DD6-AB9F-4FA0C231FBBA}|TP-Grafos\\TP-Grafos.csproj|solutionrelative:tp-grafos\\edwaldo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{5CD9F0C9-A15C-4DD6-AB9F-4FA0C231FBBA}|TP-Grafos\\TP-Grafos.csproj|C:\\Users\\pedro\\OneDrive\\Documentos\\Trabalhinhos\\TPratico_Grafos\\code\\TP-Grafos\\tp-grafos\\matriz.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5CD9F0C9-A15C-4DD6-AB9F-4FA0C231FBBA}|TP-Grafos\\TP-Grafos.csproj|solutionrelative:tp-grafos\\matriz.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{5CD9F0C9-A15C-4DD6-AB9F-4FA0C231FBBA}|TP-Grafos\\TP-Grafos.csproj|C:\\Users\\pedro\\OneDrive\\Documentos\\Trabalhinhos\\TPratico_Grafos\\code\\TP-Grafos\\tp-grafos\\aresta.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -60,7 +60,7 @@
         },
         {
           "DockedWidth": 107,
-          "SelectedChildIndex": 7,
+          "SelectedChildIndex": 9,
           "Children": [
             {
               "$type": "Bookmark",
@@ -68,7 +68,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 6,
               "Title": "Dijkstra.cs",
               "DocumentMoniker": "C:\\Users\\pedro\\OneDrive\\Documentos\\Trabalhinhos\\TPratico_Grafos\\code\\TP-Grafos\\TP-Grafos\\Dijkstra.cs",
               "RelativeDocumentMoniker": "TP-Grafos\\Dijkstra.cs",
@@ -80,7 +80,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 7,
               "Title": "BuscaEmLargura.cs",
               "DocumentMoniker": "C:\\Users\\pedro\\OneDrive\\Documentos\\Trabalhinhos\\TPratico_Grafos\\code\\TP-Grafos\\TP-Grafos\\BuscaEmLargura.cs",
               "RelativeDocumentMoniker": "TP-Grafos\\BuscaEmLargura.cs",
@@ -92,7 +92,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 8,
               "Title": "BuscaEmProfundidade.cs",
               "DocumentMoniker": "C:\\Users\\pedro\\OneDrive\\Documentos\\Trabalhinhos\\TPratico_Grafos\\code\\TP-Grafos\\TP-Grafos\\BuscaEmProfundidade.cs",
               "RelativeDocumentMoniker": "TP-Grafos\\BuscaEmProfundidade.cs",
@@ -104,25 +104,13 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "Grafo.cs",
-              "DocumentMoniker": "C:\\Users\\pedro\\OneDrive\\Documentos\\Trabalhinhos\\TPratico_Grafos\\code\\TP-Grafos\\TP-Grafos\\Grafo.cs",
-              "RelativeDocumentMoniker": "TP-Grafos\\Grafo.cs",
-              "ToolTip": "C:\\Users\\pedro\\OneDrive\\Documentos\\Trabalhinhos\\TPratico_Grafos\\code\\TP-Grafos\\TP-Grafos\\Grafo.cs",
-              "RelativeToolTip": "TP-Grafos\\Grafo.cs",
-              "ViewState": "AgIAABUAAAAAAAAAAIA3wB0AAAAhAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-06T02:32:14.029Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 5,
               "Title": "FloydWarshal.cs",
               "DocumentMoniker": "C:\\Users\\pedro\\OneDrive\\Documentos\\Trabalhinhos\\TPratico_Grafos\\code\\TP-Grafos\\TP-Grafos\\FloydWarshal.cs",
               "RelativeDocumentMoniker": "TP-Grafos\\FloydWarshal.cs",
               "ToolTip": "C:\\Users\\pedro\\OneDrive\\Documentos\\Trabalhinhos\\TPratico_Grafos\\code\\TP-Grafos\\TP-Grafos\\FloydWarshal.cs",
               "RelativeToolTip": "TP-Grafos\\FloydWarshal.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAAAwAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-12-07T13:59:15.257Z"
             },
@@ -140,53 +128,64 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "Lista.cs",
               "DocumentMoniker": "C:\\Users\\pedro\\OneDrive\\Documentos\\Trabalhinhos\\TPratico_Grafos\\code\\TP-Grafos\\TP-Grafos\\Lista.cs",
               "RelativeDocumentMoniker": "TP-Grafos\\Lista.cs",
               "ToolTip": "C:\\Users\\pedro\\OneDrive\\Documentos\\Trabalhinhos\\TPratico_Grafos\\code\\TP-Grafos\\TP-Grafos\\Lista.cs",
               "RelativeToolTip": "TP-Grafos\\Lista.cs",
-              "ViewState": "AgIAAFoAAAAAAAAAAAAuwGoAAAAVAAAAAAAAAA==",
+              "ViewState": "AgIAAJ4AAAAAAAAAAAAswLcAAAAgAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-06T02:32:44.426Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-12-06T02:32:44.426Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 2,
               "Title": "Matriz.cs",
               "DocumentMoniker": "C:\\Users\\pedro\\OneDrive\\Documentos\\Trabalhinhos\\TPratico_Grafos\\code\\TP-Grafos\\TP-Grafos\\Matriz.cs",
               "RelativeDocumentMoniker": "TP-Grafos\\Matriz.cs",
               "ToolTip": "C:\\Users\\pedro\\OneDrive\\Documentos\\Trabalhinhos\\TPratico_Grafos\\code\\TP-Grafos\\TP-Grafos\\Matriz.cs",
               "RelativeToolTip": "TP-Grafos\\Matriz.cs",
-              "ViewState": "AgIAAG8AAAAAAAAAAAAkwI8AAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAKoAAAAAAAAAAAAwwMUAAAAlAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-12-06T02:33:12.446Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 3,
+              "Title": "Grafo.cs",
+              "DocumentMoniker": "C:\\Users\\pedro\\OneDrive\\Documentos\\Trabalhinhos\\TPratico_Grafos\\code\\TP-Grafos\\TP-Grafos\\Grafo.cs",
+              "RelativeDocumentMoniker": "TP-Grafos\\Grafo.cs",
+              "ToolTip": "C:\\Users\\pedro\\OneDrive\\Documentos\\Trabalhinhos\\TPratico_Grafos\\code\\TP-Grafos\\TP-Grafos\\Grafo.cs",
+              "RelativeToolTip": "TP-Grafos\\Grafo.cs",
+              "ViewState": "AgIAABUAAAAAAAAAAAAowB0AAAAhAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-06T02:32:14.029Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
               "Title": "Edwaldo.cs",
               "DocumentMoniker": "C:\\Users\\pedro\\OneDrive\\Documentos\\Trabalhinhos\\TPratico_Grafos\\code\\TP-Grafos\\TP-Grafos\\Edwaldo.cs",
               "RelativeDocumentMoniker": "TP-Grafos\\Edwaldo.cs",
               "ToolTip": "C:\\Users\\pedro\\OneDrive\\Documentos\\Trabalhinhos\\TPratico_Grafos\\code\\TP-Grafos\\TP-Grafos\\Edwaldo.cs",
               "RelativeToolTip": "TP-Grafos\\Edwaldo.cs",
-              "ViewState": "AgIAAJEAAAAAAAAAAAAwwA8AAAAYAAAAAAAAAA==",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAABoAAAANAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-06T02:31:12.732Z"
+              "WhenOpened": "2024-12-06T02:31:12.732Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 4,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\pedro\\OneDrive\\Documentos\\Trabalhinhos\\TPratico_Grafos\\code\\TP-Grafos\\TP-Grafos\\Program.cs",
               "RelativeDocumentMoniker": "TP-Grafos\\Program.cs",
               "ToolTip": "C:\\Users\\pedro\\OneDrive\\Documentos\\Trabalhinhos\\TPratico_Grafos\\code\\TP-Grafos\\TP-Grafos\\Program.cs",
               "RelativeToolTip": "TP-Grafos\\Program.cs",
-              "ViewState": "AgIAAL8BAAAAAAAAAAAkwNkBAAAmAAAAAAAAAA==",
+              "ViewState": "AgIAADQBAAAAAAAAAAAAwE4BAAA6AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-06T02:28:05.941Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-12-06T02:28:05.941Z"
             }
           ]
         }

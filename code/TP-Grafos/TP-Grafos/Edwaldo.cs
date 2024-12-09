@@ -19,11 +19,14 @@ namespace TP_Grafos
 
         public void definirGrafo(int N, int M)
         {
-            if (M / N * (N - 1) > CRITERIO_DENSIDADE)
+            if (M / (N * (N - 1)) > CRITERIO_DENSIDADE)
             {
                 grafo = new Matriz(N);
             }
-            grafo = new Lista(N);
+            else
+            {
+                grafo = new Lista(N);
+            }
         }
 
         public string formatoString()

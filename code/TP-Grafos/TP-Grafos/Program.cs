@@ -231,6 +231,9 @@ namespace TP_Grafos
                             Console.Clear();
                             Console.WriteLine("##- Arestas adjacentes a aresta \"A\" -##");
                             E = inputAresta();
+
+                            Console.Clear();
+                            Console.WriteLine("##- Arestas adjacentes a aresta \"A\" -##");
                             foreach (Aresta x in edwaldo.adjacencia(E))
                             {
                                 Console.WriteLine(x.toString());
@@ -245,10 +248,11 @@ namespace TP_Grafos
 
                             Console.Clear();
                             Console.WriteLine("##- Vértices adjacentes ao vértice \"V\" -##");
-                            count = 0;
+                            count = 1;
                             foreach(int x in edwaldo.adjacencia(V))
                             {
                                 Console.WriteLine(count + ": (" + x + ")");
+                                count++;
                             }
                             continuar();
                             break;
@@ -272,10 +276,14 @@ namespace TP_Grafos
                             Console.Clear();
                             Console.WriteLine("##- Vértices incidentes a aresta \"V\" -##");
                             E = inputAresta();
-                            count = 0;
+
+                            Console.Clear();
+                            Console.WriteLine("##- Vértices incidentes a aresta \"V\" -##");
+                            count = 1;
                             foreach (int x in edwaldo.incidencia(E))
                             {
                                 Console.WriteLine(count + ": (" + x + ")");
+                                count++;
                             }
                             continuar();
                             break;
@@ -293,7 +301,7 @@ namespace TP_Grafos
                         case 6:
                             Console.Clear();
                             Console.WriteLine("##- Verificar adjacência entre vértices \"V\" e \"W\" -##");
-                            Console.WriteLine("\nVértice W:");
+                            Console.WriteLine("\nVértice V:");
                             V = inputVertice();
                             Console.WriteLine("\nVértice W:");
 
@@ -307,7 +315,7 @@ namespace TP_Grafos
                             Console.Clear();
                             Console.WriteLine("##- Substituir peso de aresta \"A\" -##");
                             E = inputAresta();
-                            Console.WriteLine("Qual o peso deseja que a aresta tenha?");
+                            Console.WriteLine("\nQual o peso deseja que a aresta tenha?");
                             Console.Write("RESPOSTA: ");
                             int respPeso = Convert.ToInt32(Console.ReadLine());
 
@@ -320,17 +328,17 @@ namespace TP_Grafos
 
                         case 8:
                             Console.Clear();
-                            Console.WriteLine("##- Trocar vértice V e W de posição -##");
+                            Console.WriteLine("##- Trocar vértice 1 e 2 de posição -##");
                             versaoAntiga = edwaldo.representacao();
-                            Console.WriteLine("\nVértice W:");
+                            Console.WriteLine("\nVértice 1:");
                             V = inputVertice();
-                            Console.WriteLine("\nVértice W:");
+                            Console.WriteLine("\nVértice 2:");
                             W = inputVertice();
                             edwaldo.substituir(V, W);
 
 
                             Console.Clear();
-                            Console.WriteLine("##- Trocar vértice V e W de posição -##");
+                            Console.WriteLine("##- Trocar vértice 1 e 2 de posição -##");
                             Console.WriteLine("Versão anterior");
                             Console.WriteLine(versaoAntiga);
                             continuar();
