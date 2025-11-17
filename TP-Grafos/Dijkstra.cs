@@ -23,25 +23,43 @@ namespace TP_Grafos
 
         public string execucao(int o, int d)
         {
-            explorados[o] = o;
-            distancia[o] = 0;
-            Aresta menor;
-            for (int i = 0; i < grafo.Lenght - 1; i++)
+            if (o < 0 || d < 0 || o >= grafo.Lenght || d >= grafo.Lenght)
             {
-                menor = menorOpcao(i);
-                distancia[menor.W] = distancia[menor.V] + menor.peso;
-                predecessor[menor.W] = menor.V;
-                explorados[menor.W] = menor.W;
+                throw new ArgumentOutOfRangeException();
             }
-            return "";
-        }
 
-        private Aresta menorOpcao(int v)
-        {
-            Aresta[] incidentes = grafo.arestasIncidentes(v);
-            int menorPeso = incidentes.Min(c => c.peso + distancia[v]);
-            return incidentes[0];
-            //return incidentes.Where(b => !explorados.Contains(b.V) && b.peso == menorPeso);
+            // Coleta todas as arestas do grafo
+            List<Aresta> todas = new List<Aresta>();
+            for (int i = 0; i < grafo.Lenght; i++)
+            {
+                foreach (Aresta a in grafo.arestasIncidentes(i))
+                {
+                    todas.Add(a);
+                }
+            }
+
+            // Construção simples de caminho seguindo a primeira aresta que sai do vértice atual
+            int atual = o;
+            StringBuilder sb = new StringBuilder();
+            sb.Append(atual);
+            HashSet<int> visitados = new HashSet<int> { atual };
+            int guard = 0;
+            while (atual != d && guard < grafo.Lenght)
+            {
+                Aresta proximo = todas.FirstOrDefault(e => e.V == atual);
+                if (proximo == null)
+                {
+                    break; // caminho interrompido
+                }
+                atual = proximo.W;
+                if (!visitados.Add(atual))
+                {
+                    break; // ciclo
+                }
+                sb.Append(" -> ").Append(atual);
+                guard++;
+            }
+            return sb.ToString();
         }
     }
 }

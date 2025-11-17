@@ -19,7 +19,9 @@ namespace TP_Grafos
 
         public void definirGrafo(int N, int M)
         {
-            if (M / (N * (N - 1)) > CRITERIO_DENSIDADE)
+            // Usa divisão em double para calcular corretamente a densidade M / (N*(N-1))
+            double densidade = (N > 1) ? (double)M / (N * (N - 1)) : 0.0;
+            if (densidade > CRITERIO_DENSIDADE)
             {
                 grafo = new Matriz(N);
             }
@@ -152,7 +154,8 @@ namespace TP_Grafos
 
         public bool verticeDestinoValido(int w)
         {
-            return (w > 0 || w <= grafo.Lenght - 1) ? true : throw new Exception("Vértice de destino inválido");
+            // Deve estar dentro do intervalo [0, Lenght-1]
+            return (w >= 0 && w <= grafo.Lenght - 1) ? true : throw new Exception("Vértice de destino inválido");
         }
 
         public bool qntVerticeGrafoValida(int N)
