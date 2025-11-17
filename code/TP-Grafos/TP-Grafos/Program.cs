@@ -1,22 +1,18 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace TP_Grafos
 {
     internal class Program
     {
         private static Edwaldo edwaldo;
-        private static char[] indiceLiteral;
 
         static void Main(string[] args)
         {
             edwaldo = new Edwaldo();
-            indiceLiteral = new char[] { 'A', 'B', 'C', 'D', 'E', 'F' };
             string grafoString;
-            int[] G = new int[2];
+            int[] G;
             bool fim = false;
             do
             {
@@ -202,7 +198,7 @@ namespace TP_Grafos
                 int peso = Convert.ToInt32(Console.ReadLine());
                 edwaldo.addAresta(v, w - 1, peso);
 
-                return ((v + 1) + " " + w + " " + peso);
+                return (v + 1) + " " + w + " " + peso;
             }
             catch (Exception e)
             {
