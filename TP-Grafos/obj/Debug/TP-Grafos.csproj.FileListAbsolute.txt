@@ -1,0 +1,7 @@
+C:\Users\pedro\OneDrive\Documentos\Trabalhinhos\TPratico_Grafos\code\TP-Grafos\TP-Grafos\obj\Debug\TP-Grafos.csproj.AssemblyReference.cache
+C:\Users\pedro\OneDrive\Documentos\Trabalhinhos\TPratico_Grafos\code\TP-Grafos\TP-Grafos\obj\Debug\TP-Grafos.csproj.CoreCompileInputs.cache
+C:\Users\pedro\OneDrive\Documentos\Trabalhinhos\TPratico_Grafos\code\TP-Grafos\TP-Grafos\bin\Debug\TP-Grafos.exe.config
+C:\Users\pedro\OneDrive\Documentos\Trabalhinhos\TPratico_Grafos\code\TP-Grafos\TP-Grafos\bin\Debug\TP-Grafos.exe
+C:\Users\pedro\OneDrive\Documentos\Trabalhinhos\TPratico_Grafos\code\TP-Grafos\TP-Grafos\bin\Debug\TP-Grafos.pdb
+C:\Users\pedro\OneDrive\Documentos\Trabalhinhos\TPratico_Grafos\code\TP-Grafos\TP-Grafos\obj\Debug\TP-Grafos.exe
+C:\Users\pedro\OneDrive\Documentos\Trabalhinhos\TPratico_Grafos\code\TP-Grafos\TP-Grafos\obj\Debug\TP-Grafos.pdb
