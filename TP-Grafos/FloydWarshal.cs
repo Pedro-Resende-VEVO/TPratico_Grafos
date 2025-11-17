@@ -18,26 +18,40 @@ namespace TP_Grafos
 
         }
 
-        public int[,] execucao(int o)
+        public int[,] execucao(int origemIgnorado)
         {
+            int INF = int.MaxValue / 4;
+            // Inicialização
             for (int i = 0; i < grafo.Lenght; i++)
             {
-                distancia[i, i] = 0;
                 for (int j = 0; j < grafo.Lenght; j++)
                 {
-                    //distancia[i, j] = grafo.distanciaEntre(i,j);
+                    distancia[i, j] = (i == j) ? 0 : INF;
                 }
             }
 
+            // Preenche pesos das arestas conhecidas
+            for (int v = 0; v < grafo.Lenght; v++)
+            {
+                foreach (Aresta a in grafo.arestasIncidentes(v))
+                {
+                    distancia[a.V, a.W] = Math.Min(distancia[a.V, a.W], a.peso);
+                }
+            }
+
+            // Floyd-Warshall
             for (int k = 0; k < grafo.Lenght; k++)
             {
                 for (int i = 0; i < grafo.Lenght; i++)
                 {
+                    if (distancia[i, k] == INF) continue;
                     for (int j = 0; j < grafo.Lenght; j++)
                     {
-                        if (distancia[i,j] > distancia[i,k] + distancia[k, j])
+                        if (distancia[k, j] == INF) continue;
+                        int novo = distancia[i, k] + distancia[k, j];
+                        if (novo < distancia[i, j])
                         {
-                            distancia[i, j] = distancia[i, k] + distancia[k, j];
+                            distancia[i, j] = novo;
                         }
                     }
                 }
