@@ -1,0 +1,8 @@
+is_global = true
+build_property.RootNamespace = TP_Grafos.Tests
+build_property.ProjectDir = C:\Users\dtiDigital\Documents\TPratico_Grafos\code\TP-Grafos\TP-Grafos.Tests\
+build_property.EnableComHosting = 
+build_property.EnableGeneratedComInterfaceComImportInterop = 
+build_property.CsWinRTUseWindowsUIXamlProjections = false
+build_property.EffectiveAnalysisLevelStyle = 
+build_property.EnableCodeStyleSeverity = 

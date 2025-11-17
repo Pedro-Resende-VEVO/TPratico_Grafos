@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace TP_Grafos
 {
-    class Matriz : Grafo
+    public class Matriz : Grafo
     {
         private int[,] dados;
 

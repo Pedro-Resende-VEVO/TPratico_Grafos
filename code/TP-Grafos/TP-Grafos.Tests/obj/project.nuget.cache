@@ -1,0 +1,14 @@
+{
+  "version": 2,
+  "dgSpecHash": "tNY/j15wI2U=",
+  "success": true,
+  "projectFilePath": "C:\\Users\\dtiDigital\\Documents\\TPratico_Grafos\\code\\TP-Grafos\\TP-Grafos.Tests\\TP-Grafos.Tests.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\dtiDigital\\.nuget\\packages\\coverlet.collector\\6.0.0\\coverlet.collector.6.0.0.nupkg.sha512",
+    "C:\\Users\\dtiDigital\\.nuget\\packages\\microsoft.codecoverage\\17.8.0\\microsoft.codecoverage.17.8.0.nupkg.sha512",
+    "C:\\Users\\dtiDigital\\.nuget\\packages\\microsoft.net.test.sdk\\17.8.0\\microsoft.net.test.sdk.17.8.0.nupkg.sha512",
+    "C:\\Users\\dtiDigital\\.nuget\\packages\\mstest.testadapter\\3.1.1\\mstest.testadapter.3.1.1.nupkg.sha512",
+    "C:\\Users\\dtiDigital\\.nuget\\packages\\mstest.testframework\\3.1.1\\mstest.testframework.3.1.1.nupkg.sha512"
+  ],
+  "logs": []
+}

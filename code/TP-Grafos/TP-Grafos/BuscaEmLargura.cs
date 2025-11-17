@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace TP_Grafos
 {
-    internal class BuscaEmLargura
+    public class BuscaEmLargura
     {
         private Grafo grafo;
         int[] L;
