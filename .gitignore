@@ -5,6 +5,7 @@
 # Build output (should not be committed)
 bin/
 obj/
+Tests/TestResults
 
 # Visual Studio local workspace data
 .vs/

@@ -177,4 +177,134 @@ public class EdwaldoTest
         {
         Assert.Throws<Exception>(() => edwaldo.qntArestaGrafoValida(5, 8));
         }
+
+    [Fact]
+    public void AddAresta_Aleatorio_InsereCorretamente()
+    {
+        edwaldo.definirGrafo(5, 10);
+        
+        edwaldo.addAresta(5);
+        
+        Assert.NotNull(edwaldo.representacao());
+    }
+
+    [Fact]
+    public void SortearVertice_RetornaIndiceValido()
+    {
+        edwaldo.definirGrafo(5, 5);
+        
+        int v = edwaldo.sortearVertice();
+        
+        Assert.InRange(v, 0, 4);
+    }
+
+    [Fact]
+    public void Adjacencia_Aresta_ComUnicaAresta_LancaExcecao()
+    {
+        edwaldo.definirGrafo(5, 10);
+        edwaldo.addAresta(0, 1, 5);
+        var arestas = edwaldo.arestasDisponiveis();
+        
+        Assert.Throws<Exception>(() => edwaldo.adjacencia(arestas[0]));
+    }
+
+    [Fact]
+    public void Adjacencia_Vertice_RetornaVerticesAdjacentes()
+    {
+        edwaldo.definirGrafo(4, 10);
+        edwaldo.addAresta(1, 0, 2);
+        edwaldo.addAresta(2, 0, 3);
+        
+        var adj = edwaldo.adjacencia(0);
+        
+        Assert.NotEmpty(adj);
+    }
+
+    [Fact]
+    public void Incidencia_Aresta_RetornaVerticesIncidentes()
+    {
+        edwaldo.definirGrafo(4, 4);
+        edwaldo.addAresta(0, 1, 5);
+        var arestas = edwaldo.arestasDisponiveis();
+        
+        var inc = edwaldo.incidencia(arestas[0]);
+        
+        Assert.NotNull(inc);
+        Assert.Equal(2, inc.Length);
+    }
+
+    [Fact]
+    public void Incidencia_Vertice_RetornaArestasIncidentes()
+    {
+        edwaldo.definirGrafo(4, 10);
+        edwaldo.addAresta(0, 1, 2);
+        edwaldo.addAresta(0, 2, 3);
+        edwaldo.addAresta(1, 0, 4);
+        
+        var inc = edwaldo.incidencia(0);
+        
+        Assert.NotEmpty(inc);
+    }
+
+    [Fact]
+    public void Substituir_Aresta_AlteraPeso()
+    {
+        edwaldo.definirGrafo(3, 3);
+        edwaldo.addAresta(0, 1, 10);
+        var arestas = edwaldo.arestasDisponiveis();
+        
+        var novaAresta = edwaldo.substituir(arestas[0], 20);
+        
+        Assert.Equal(20, novaAresta.peso);
+    }
+
+    [Fact]
+    public void Substituir_Vertices_TrocaPosicoes()
+    {
+        edwaldo.definirGrafo(4, 4);
+        edwaldo.addAresta(0, 1, 5);
+        
+        edwaldo.substituir(0, 1);
+        
+        Assert.NotNull(edwaldo.representacao());
+    }
+
+    [Fact]
+    public void Substituir_VerticeInvalido_LancaExcecao()
+    {
+        edwaldo.definirGrafo(3, 3);
+        
+        Assert.Throws<Exception>(() => edwaldo.substituir(0, 10));
+    }
+
+    [Fact]
+    public void Representacao_RetornaStringNaoVazia()
+    {
+        edwaldo.definirGrafo(3, 3);
+        edwaldo.addAresta(0, 1, 5);
+        
+        var repr = edwaldo.representacao();
+        
+        Assert.NotEmpty(repr);
+    }
+
+    [Fact]
+    public void QntArestaVerticeValida_ValorValido_RetornaTrue()
+    {
+        edwaldo.definirGrafo(5, 5);
+        
+        bool r = edwaldo.qntArestaVerticeValida(3);
+        
+        Assert.True(r);
+    }
+
+    [Fact]
+    public void QntArestaVerticeValida_ValorInvalido_RetornaFalse()
+    {
+        edwaldo.definirGrafo(5, 5);
+        
+        bool r = edwaldo.qntArestaVerticeValida(10);
+        
+        Assert.False(r);
+    }
     }
