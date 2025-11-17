@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Diagnostics.CodeAnalysis;
 
 namespace TP_Grafos
 {
@@ -11,6 +12,7 @@ namespace TP_Grafos
         private static Edwaldo edwaldo;
         private static char[] indiceLiteral;
 
+        [ExcludeFromCodeCoverage]
         static void Main(string[] args)
         {
             edwaldo = new Edwaldo();
@@ -102,6 +104,7 @@ namespace TP_Grafos
             }
         }
 
+        [ExcludeFromCodeCoverage]
         static int[] criarGrafo()
         {
             try
@@ -128,6 +131,7 @@ namespace TP_Grafos
             }
         }
 
+        [ExcludeFromCodeCoverage]
         static void distribuirArestas(int M, int count)
         {
             int j = 0;
@@ -150,6 +154,7 @@ namespace TP_Grafos
             }
         }
 
+        [ExcludeFromCodeCoverage]
         private static string criarDIMIC(int N, int arestasRestantes, StringBuilder sb)
         {
             try
@@ -187,6 +192,7 @@ namespace TP_Grafos
             }
         }
 
+        [ExcludeFromCodeCoverage]
         private static string arestaDIMIC(int N, int v)
         {
             try
@@ -211,6 +217,7 @@ namespace TP_Grafos
             }
         }
 
+        [ExcludeFromCodeCoverage]
         static void mainDIMAC()
         {
             
@@ -479,6 +486,7 @@ namespace TP_Grafos
             }
         }
 
+        [ExcludeFromCodeCoverage]
         public static void continuar()
         {
             Console.WriteLine("\n #- Grafo atual -#\n" + edwaldo.representacao());
