@@ -4,10 +4,6 @@
 **Período:** 2025.2  
 **Data:** 17/11/2025
 
-## Equipe
-- Pedro Resende
-- Thiago Caetano
-- Artur Amendoeira
 
 ---
 
