@@ -18,30 +18,85 @@ namespace TP_Grafos
             this.grafo = grafo;
             distancia = new int[this.grafo.Lenght];
             predecessor = new int[this.grafo.Lenght];
-            explorados = new List<int>();
+            explorados = new List<int>(new int[this.grafo.Lenght]);
         }
 
         public string execucao(int o, int d)
         {
-            explorados[o] = o;
-            distancia[o] = 0;
-            Aresta menor;
-            for (int i = 0; i < grafo.Lenght - 1; i++)
+            for (int i = 0; i < grafo.Lenght; i++)
             {
-                menor = menorOpcao(i);
-                distancia[menor.W] = distancia[menor.V] + menor.peso;
-                predecessor[menor.W] = menor.V;
-                explorados[menor.W] = menor.W;
+                distancia[i] = int.MaxValue;
+                predecessor[i] = -1;
             }
-            return "";
-        }
 
-        private Aresta menorOpcao(int v)
-        {
-            Aresta[] incidentes = grafo.arestasIncidentes(v);
-            int menorPeso = incidentes.Min(c => c.peso + distancia[v]);
-            return incidentes[0];
-            //return incidentes.Where(b => !explorados.Contains(b.V) && b.peso == menorPeso);
+            distancia[o] = 0;
+
+            List<int> naoVisitados = new List<int>();
+            for (int i = 0; i < grafo.Lenght; i++)
+            {
+                naoVisitados.Add(i);
+            }
+
+            while (naoVisitados.Count > 0)
+            {
+                int u = -1;
+                int min_dist = int.MaxValue;
+                foreach (int vertice in naoVisitados)
+                {
+                    if (distancia[vertice] < min_dist)
+                    {
+                        min_dist = distancia[vertice];
+                        u = vertice;
+                    }
+                }
+
+                if (u == -1) break;
+
+                naoVisitados.Remove(u);
+
+                if (u == d) break;
+
+
+                int[] vizinhosArray = grafo.vizinhos(u);
+
+                foreach (int v in vizinhosArray)
+                {
+
+                    int peso = 0;
+
+                    Aresta[] arestasEmV = grafo.arestasIncidentes(v);
+                    foreach (var aresta in arestasEmV)
+                    {
+                        if (aresta.V == u && aresta.W == v)
+                        {
+                            peso = aresta.peso;
+                            break;
+                        }
+                    }
+
+                    if (peso > 0 && distancia[u] != int.MaxValue && distancia[u] + peso < distancia[v])
+                    {
+                        distancia[v] = distancia[u] + peso;
+                        predecessor[v] = u;
+                    }
+                }
+            }
+
+            if (predecessor[d] == -1 && d != o)
+            {
+                return "Não há caminho de " + o + " para " + d;
+            }
+
+            List<int> caminho = new List<int>();
+            int atual = d;
+            while (atual != -1)
+            {
+                caminho.Add(atual);
+                atual = predecessor[atual];
+            }
+            caminho.Reverse();
+
+            return string.Join(" -> ", caminho);
         }
     }
 }
