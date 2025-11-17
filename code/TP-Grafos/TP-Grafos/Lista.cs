@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace TP_Grafos
 {
-    class Lista : Grafo
+    public class Lista : Grafo
     {
         private List<Aresta>[] dados;
 

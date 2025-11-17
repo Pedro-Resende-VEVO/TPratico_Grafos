@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace TP_Grafos
 {
-    internal class BuscaEmProfundidade
+    public class BuscaEmProfundidade
     {
         private Grafo grafo;
         private int[] tempoDescoberta;

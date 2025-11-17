@@ -5,6 +5,8 @@ VisualStudioVersion = 17.11.35431.28
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TP-Grafos", "TP-Grafos\TP-Grafos.csproj", "{5CD9F0C9-A15C-4DD6-AB9F-4FA0C231FBBA}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tests", "EdwaldoTeste\Tests.csproj", "{5341455A-81C5-4572-883E-B52121CCC289}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{5CD9F0C9-A15C-4DD6-AB9F-4FA0C231FBBA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5CD9F0C9-A15C-4DD6-AB9F-4FA0C231FBBA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5CD9F0C9-A15C-4DD6-AB9F-4FA0C231FBBA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5341455A-81C5-4572-883E-B52121CCC289}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5341455A-81C5-4572-883E-B52121CCC289}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5341455A-81C5-4572-883E-B52121CCC289}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5341455A-81C5-4572-883E-B52121CCC289}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

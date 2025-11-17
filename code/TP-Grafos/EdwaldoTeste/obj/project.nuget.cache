@@ -1,0 +1,14 @@
+{
+  "version": 2,
+  "dgSpecHash": "X4rzD6VaCdA=",
+  "success": true,
+  "projectFilePath": "C:\\Users\\rafae\\Source\\Repos\\TPratico_Grafos\\code\\TP-Grafos\\EdwaldoTeste\\Tests.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\rafae\\.nuget\\packages\\coverlet.collector\\6.0.4\\coverlet.collector.6.0.4.nupkg.sha512",
+    "C:\\Users\\rafae\\.nuget\\packages\\microsoft.codecoverage\\17.3.2\\microsoft.codecoverage.17.3.2.nupkg.sha512",
+    "C:\\Users\\rafae\\.nuget\\packages\\microsoft.net.test.sdk\\17.3.2\\microsoft.net.test.sdk.17.3.2.nupkg.sha512",
+    "C:\\Users\\rafae\\.nuget\\packages\\mstest.testadapter\\2.2.10\\mstest.testadapter.2.2.10.nupkg.sha512",
+    "C:\\Users\\rafae\\.nuget\\packages\\mstest.testframework\\2.2.10\\mstest.testframework.2.2.10.nupkg.sha512"
+  ],
+  "logs": []
+}

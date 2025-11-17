@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace TP_Grafos
 {
-    internal class Aresta
+    public class Aresta
     {
         public int V { get; set; }
         public int W { get; set; }

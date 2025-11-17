@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace TP_Grafos
 {
-    abstract class Grafo
+    public abstract class Grafo
     {
         public int Lenght;
         public string formato;

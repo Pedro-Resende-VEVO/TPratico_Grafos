@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace TP_Grafos
 {
-    class Edwaldo
+    public class Edwaldo
     {
         private double CRITERIO_DENSIDADE = 0.5;
         private Grafo grafo;
@@ -19,7 +19,7 @@ namespace TP_Grafos
 
         public void definirGrafo(int N, int M)
         {
-            if (M / (N * (N - 1)) > CRITERIO_DENSIDADE)
+            if ((double)M / (N * (N - 1)) > CRITERIO_DENSIDADE)
             {
                 grafo = new Matriz(N);
             }
@@ -152,7 +152,7 @@ namespace TP_Grafos
 
         public bool verticeDestinoValido(int w)
         {
-            return (w > 0 || w <= grafo.Lenght - 1) ? true : throw new Exception("Vértice de destino inválido");
+            return (w >= 0 && w < grafo.Lenght) ? true : throw new Exception("Vértice de destino inválido");
         }
 
         public bool qntVerticeGrafoValida(int N)
