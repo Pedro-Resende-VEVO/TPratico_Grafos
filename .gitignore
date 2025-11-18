@@ -1,2 +1,39 @@
+# Editor temporary files
 *.autosave
 *~
+
+# Build output (should not be committed)
+bin/
+obj/
+Tests/TestResults
+
+# Visual Studio local workspace data
+.vs/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# NuGet packages (if using packages folder instead of PackageReference)
+packages/
+*.nupkg
+*.snupkg
+
+# Logs
+*.log
+
+# Generated files
+**/[Dd]ebug/
+**/[Rr]elease/
+
+# Backup / crash dumps
+*.bak
+*.mdf
+*.ldf
+
+# Resharper / Rider / other tooling caches
+_ReSharper*/
+*.DotSettings.user
+
+# Ignore local configuration overrides except the root App.config you keep in source
+TP-Grafos/TP-Grafos/App.config

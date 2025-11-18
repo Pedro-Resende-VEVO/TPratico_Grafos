@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RunSettings>
+  <DataCollectionRunSettings>
+    <DataCollectors>
+      <DataCollector friendlyName="XPlat Code Coverage">
+        <Configuration>
+          <!-- Formats: cobertura (XML), lcov (for HTML tools), opencover -->
+          <Format>cobertura,lcov,opencover</Format>
+          <!-- Exclude by attribute -->
+          <ExcludeByAttribute>Obsolete,ExcludeFromCodeCoverage</ExcludeByAttribute>
+          <!-- Example filters (keep all for now). You could add: [TP_Grafos]*Program* -->
+          <SkipAutoProps>true</SkipAutoProps>
+          <IncludeTestAssembly>true</IncludeTestAssembly>
+          <SingleHit>false</SingleHit>
+          <UseSourceLink>true</UseSourceLink>
+        </Configuration>
+      </DataCollector>
+    </DataCollectors>
+  </DataCollectionRunSettings>
+</RunSettings>
